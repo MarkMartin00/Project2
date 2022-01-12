@@ -5,12 +5,12 @@
 2.) Open gitbash on that file.
 
 3.) Use the git command line "
-          git clone https://github.com/MarkMartin00/Project2.git
+          git clone https://github.com/MarkMartin00/Project2.git "
         
-        //now that file has the main git directory for our respository in it. There's a secondary project02 folder inside. Don't be alarmed about this. 
+    //now that file has the main git directory for our respository in it. There's a secondary project02 folder inside. Don't be alarmed about this. 
         
-      git remote add origin https://github.com/MarkMartin00/Project2.git  
-     git branch -M main  
+    git remote add origin https://github.com/MarkMartin00/Project2.git  
+    git branch -M main  
 4.) ls   (command to show files in your computer directory.
 
                 Use these at the start of every work day. Make sure to commit your work about every hour to avoid pull discrepencies.
