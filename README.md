@@ -14,7 +14,7 @@
 
                 Use these at the start of every work day. Make sure to commit your work about every hour to avoid pull discrepencies.
 
-5.) git pull -u origin main    ( This updates your file in Project2 with any changes your collueges have implemented.)
+5.) git pull origin main    ( This updates your file in Project2 with any changes your collueges have implemented.)
 
 6.) git status              (Shows any changes you have made to your files that is not the same as the directory.)
 
