@@ -6,6 +6,7 @@
 
 3.) Use the git command line "
           git clone https://github.com/MarkMartin00/Project2.git
+        
         //now that file has the main git directory for our respository in it. There's a secondary project02 folder inside. Don't be alarmed about this. 
         
       git remote add origin https://github.com/MarkMartin00/Project2.git  
