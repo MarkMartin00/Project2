@@ -585,83 +585,38 @@ const speed = (speedcalc);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export class NavComponent implements OnInit {
-//   constructor() { }
-//   ngOnInit(): void {
-//   }
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// startAddMovieButton.addEventListener("click", toggleMovieModal);
-// backDrop.addEventListener("click", toggleMovieModal);
-// cancelMovieButton.addEventListener("click", cancelAddMovieHandler);
-// confirmAddMovieButton.addEventListener("click", confirmAddMovieHandler);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+str.addEventListener("click", strength);
+dex.addEventListener("click", dexterity);
+con.addEventListener("click", constitution);
+int.addEventListener("click", intellect);
+wis.addEventListener("click", wisdom);
+cha.addEventListener("click", charisma);
+strsave.addEventListener("click", strsaving);
+dexsave.addEventListener("click", dexsaving);
+consave.addEventListener("click", consaving);
+intsave.addEventListener("click", intsaving);
+wissave.addEventListener("click", wissaving);
+chasave.addEventListener("click", chasaving);
+athletics.addEventListener("click", athleticsskill);
+acrobatics.addEventListener("click", acrobaticsskill);
+sleight.addEventListener("click", sleightskill);
+stealth.addEventListener("click", stealthskill);
+arcana.addEventListener("click", arcanaskill);
+history.addEventListener("click", historyskill);
+investigation.addEventListener("click", investigationskill);
+nature.addEventListener("click", natureskill);
+religion.addEventListener("click", religionskill);
+animal.addEventListener("click", animalskill);
+insight.addEventListener("click", insightskill);
+medicine.addEventListener("click", medicineskill);
+perception.addEventListener("click", perceptionskill);
+survival.addEventListener("click", survivalskill);
+deception.addEventListener("click", deceptionskill);
+intimidation.addEventListener("click", intimidationskill);
+performance.addEventListener("click", performanceskill);
+persuasion.addEventListener("click", persuasionskill);
+hitdice.addEventListener("click", hitdicemod);
+deathsaves.addEventListener("click", rollsaves);
+spellattackbonus.addEventListener("click", spellattack);
 
 
