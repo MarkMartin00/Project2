@@ -6,6 +6,8 @@ export const environment = {
   production: false
 };
 
+export const apiUrl = `https://www.dnd5eapi.co/api/`
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
@@ -14,4 +16,3 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
-export const awsUrl = `http://completeapibeanstalk-env.eba-sfn83npg.us-east-1.elasticbeanstalk.com/api`
