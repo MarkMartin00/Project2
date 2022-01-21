@@ -48,6 +48,7 @@ import { Component, OnInit, Type } from '@angular/core';
 // const intimidation = (intimidationskill);
 // const performance = (performanceskill);
 // const persuasion = (persuasionskill);
+
 // const hitdice = (hitdicemod);
 // const hitpoints = (hitpointtotal);
 // const deathsaves = (rollsaves);
@@ -627,6 +628,7 @@ export class NavComponent implements OnInit {
 // // backDrop.addEventListener("click", toggleMovieModal);
 // // cancelMovieButton.addEventListener("click", cancelAddMovieHandler);
 // // confirmAddMovieButton.addEventListener("click", confirmAddMovieHandler);
+
 
 
 
