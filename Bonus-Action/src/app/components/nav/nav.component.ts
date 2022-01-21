@@ -3,12 +3,6 @@ import { kStringMaxLength } from 'buffer';
 import { stat } from 'fs';
 import { totalmem } from 'os';
 
-@Component({
-  selector: 'app-nav',
-  templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.css']
-})
-
 const level = 1;
 const str = strength();
 const dex = dexterity();
