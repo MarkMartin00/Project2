@@ -9,6 +9,12 @@ import { totalmem } from 'os';
   styleUrls: ['./nav.component.css']
 })
 
+export class NavComponent implements OnInit {
+  constructor() { }
+  ngOnInit(): void {
+  }
+}
+
 const level = 1;
 const str = strength();
 const dex = dexterity();
@@ -618,5 +624,6 @@ persuasion_check.addEventListener("click", persuasionskill);
 hitdice.addEventListener("click", hitdicemod);
 deathsaves.addEventListener("click", rollsaves);
 spellattackbonus.addEventListener("click", spellattack);
+
 
 

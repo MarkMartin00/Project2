@@ -28,7 +28,7 @@ export class SheetComponent implements OnInit {
 
   private getClass(index: string) {
     this.service.getClass(this.character.char_class).subscribe(
-      (data => this.char_class = data)
+      // (data => this.char_class = data)
     );
   }
 }
