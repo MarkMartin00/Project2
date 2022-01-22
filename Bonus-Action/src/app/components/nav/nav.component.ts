@@ -14,51 +14,6 @@ export class NavComponent implements OnInit {
   }
 }
 
-<<<<<<< HEAD
-// const level = document.getElementById("character_level");
-// const str = document.getElementById("str");
-// const dex = document.getElementById("dex");
-// const con = document.getElementById("con");
-// const int = document.getElementById("int");
-// const wis = document.getElementById("wis");
-// const cha = document.getElementById("cha");
-
-// const proficiency_mod = proficiencymod(level);
-// const proficiencies = [];
-// const strsave = document.getElementById("strength_throw");
-// const dexsave = document.getElementById("dexterity_throw");
-// const consave = document.getElementById("constitution_throw");
-// const intsave = document.getElementById("intelligence_throw");
-// const wissave = document.getElementById("wisdom_throw");
-// const chasave = document.getElementById("charisma_throw");
-// const athletics = document.getElementById("athletics_check");
-// const acrobatics = document.getElementById("acrobatics_check");
-// const sleight = document.getElementById("sleight_check");
-// const stealth = document.getElementById("stealth_check");
-// const arcana = document.getElementById("arcana_check");
-// const history = document.getElementById("history_check");
-// const investigation = document.getElementById("investigation_check");
-// const nature = document.getElementById("nature_check");
-// const religion = document.getElementById("religion_check");
-// const animal = document.getElementById("animal_check");
-// const insight = document.getElementById("insight_check");
-// const medicine = document.getElementById("medicine_check");
-// const perception = document.getElementById("perception_check");
-// const survival = document.getElementById("survival_check");
-// const deception = document.getElementById("deception_check");
-// const intimidation = document.getElementById("intimidation_check");
-// const performance = (document.getElementById("performance_check");
-// const persuasion = document.getElementById("persuasion_check");
-// const totalhitdice = document.getElementById("total_hit_dice");
-// const remaininghitdice = document.getElementById("remaining_hit_dice");
-// const hitdietype = document.getElementById("hit_die_type");
-// const hitpoints = document.getElementById("character_hp_max");
-// const deathsaves = document.getElementById("death_saves");
-// const spellsavedc = (spellsave);
-// const spellattackbonus = (spellattack);
-// const initiative = document.getElementById("character_initiative");
-// const speed = document.getElementById("character_speed");
-=======
 
 const level = document.getElementById("character_level");
 const str = document.getElementById("str");
@@ -108,132 +63,35 @@ const deathsaves = document.getElementById("death_saves");
 // const spellattackbonus = (spellattack);
 const initiative = document.getElementById("character_initiative");
 const speed = document.getElementById("character_speed");
->>>>>>> 8de83f960fa84596eed4624acea9b508ac93cf41
 // const ac = document.getElementById(armorclass);
 
 
-// //==================================================================DICE ROLLS===========================================================================
-// function d4 () {
-//   var d4 = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
-//   return d4;
-// }
-// function d6 () {
-//  var d6 = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
-//  return d6;
-// }
-// function d8 () {
-//   var d8 = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-//   return d8;
-// }
-// function d10 () {
-//   var d10 = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
-//   return d10;
-// }
-// function d12 () {
-//   var d12 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-//   return d12;
-// }
-// function d20 () {
-//   var d20 = Math.floor(Math.random() * (20 - 1 + 1)) + 1;
-//   return d20;
-// }
+//==================================================================DICE ROLLS===========================================================================
+function d4 () {
+  var d4 = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+  return d4;
+}
+function d6 () {
+ var d6 = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+ return d6;
+}
+function d8 () {
+  var d8 = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+  return d8;
+}
+function d10 () {
+  var d10 = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+  return d10;
+}
+function d12 () {
+  var d12 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+  return d12;
+}
+function d20 () {
+  var d20 = Math.floor(Math.random() * (20 - 1 + 1)) + 1;
+  return d20;
+}
 
-<<<<<<< HEAD
-// // ========================================================ROLLING STATS=====================================================================================
-// const strength = () => {
-//   let str = [d6(), d6(), d6(), d6()];
-//   str.sort();
-//   console.log(str);
-//   str.splice(0,1);
-//   console.log(str);
-//   const strsum = str.reduce((partial_sum, a) => partial_sum + a,0);
-//   console.log(strsum);
-//   return strsum;
-// }
-// const dexterity = () => {
-//   let str = [d6(), d6(), d6(), d6()];
-//   str.sort();
-//   console.log(str);
-//   str.splice(0,1);
-//   console.log(str);
-//   const dexsum = str.reduce((partial_sum, a) => partial_sum + a,0);
-//   console.log(dexsum);
-//   return dexsum;
-// }
-// const constitution = () => {
-//   let str = [d6(), d6(), d6(), d6()];
-//   str.sort();
-//   console.log(str);
-//   str.splice(0,1);
-//   console.log(str);
-//   const consum = str.reduce((partial_sum, a) => partial_sum + a,0);
-//   console.log(consum);
-//   return consum;
-// }
-// const intellect = () => {
-//   let str = [d6(), d6(), d6(), d6()];
-//   str.sort();
-//   console.log(str);
-//   str.splice(0,1);
-//   console.log(str);
-//   const intsum = str.reduce((partial_sum, a) => partial_sum + a,0);
-//   console.log(intsum);
-//   return intsum;
-// }
-// const wisdom = () => {
-//   let str = [d6(), d6(), d6(), d6()];
-//   str.sort();
-//   console.log(str);
-//   str.splice(0,1);
-//   console.log(str);
-//   const wissum = str.reduce((partial_sum, a) => partial_sum + a,0);
-//   console.log(wissum);
-//   return wissum;
-// }
-// const charisma = () => {
-//   let str = [d6(), d6(), d6(), d6()];
-//   str.sort();
-//   console.log(str);
-//   str.splice(0,1);
-//   console.log(str);
-//   const chasum = str.reduce((partial_sum, a) => partial_sum + a,0);
-//   console.log(chasum);
-//   return chasum;
-// }
-// //================================================================STAT MODIFIER================================================================================
-// const mod = (x: number) => {
-//   switch (x) {
-//     case 0 : case 1:
-//         return -5;
-//     case 2: case 3:
-//         return -4;
-//     case 4: case 5:
-//       return -3;
-//     case 6: case 7:
-//       return -2;
-//     case 8: case 9:
-//       return -1;
-//     case 10: case 11:
-//       return 0;
-//     case 12: case 13:
-//         return 1;
-//     case 14: case 15:
-//       return 2;
-//     case 16: case 17:
-//       return 3;
-//     case 18: case 19:
-//       return 4;
-//     case 20: case 21:
-//       return 5;
-//     default:
-//       return null;
-//   }
-// }
-// //====================================================================PROFICIENCY MODIFIER====================================================================
-//
-
-// //====================================================SAVING THROWS=========================================================================================
-=======
 // ========================================================ROLLING STATS=====================================================================================
 function strength(){
   let strength = [d6(), d6(), d6(), d6()];
@@ -345,7 +203,6 @@ const proficiencymod = (level : number) => {
 }
 
 //====================================================SAVING THROWS=========================================================================================
->>>>>>> 8de83f960fa84596eed4624acea9b508ac93cf41
 // const strsaving = (stat: String) => {
 //   if (proficiencies.includes(stat)) {
 //     let total = (d20() + proficiencymod(level) + strmod);
@@ -762,15 +619,7 @@ const proficiencymod = (level : number) => {
 // const passiveper = passiveperception();
 // const passiveins = passiveinsight();
 // const passiveinves = passiveinvestigation();
-<<<<<<< HEAD
-// str.addEventListener("click", strength);
-// dex.addEventListener("click", dexterity);
-// con.addEventListener("click", constitution);
-// int.addEventListener("click", intellect);
-// wis.addEventListener("click", wisdom);
-// cha.addEventListener("click", charisma);
-=======
->>>>>>> 8de83f960fa84596eed4624acea9b508ac93cf41
+
 // strsave.addEventListener("click", strsaving);
 // dexsave.addEventListener("click", dexsaving);
 // consave.addEventListener("click", consaving);
