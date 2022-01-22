@@ -1,0 +1,6 @@
+.stat_container {
+  border: 2px solid black;
+  margin: 1em auto;
+  width: 5em;
+  text-align: center;
+}
