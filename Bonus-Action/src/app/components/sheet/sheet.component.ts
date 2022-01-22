@@ -10,8 +10,6 @@ import { Component, OnInit } from '@angular/core';
 export class SheetComponent implements OnInit {
   title = 'Character Sheet';
 
-<<<<<<< HEAD
-=======
   public character: PlayerCharacter = new Character(
     'Lisa Lisa',
     'Human',
@@ -69,7 +67,6 @@ initiative = document.getElementById("character_initiative");
 speed = document.getElementById("character_speed");
 // ac = document.getElementById(armorclass);
 
->>>>>>> 8de83f960fa84596eed4624acea9b508ac93cf41
   constructor(private service: SheetService) { }
 
   ngOnInit(): void {
