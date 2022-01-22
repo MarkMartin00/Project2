@@ -14,170 +14,159 @@ export class SheetComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 }
-  public character: PlayerCharacter = new Character(
-    'Lisa Lisa',
-    'Human',
-    'Monk',
-    ['str', 'wis', 'int'],
-    2
-  );
-level = document.getElementById("character_level");
-str = document.getElementById("str");
-dex = document.getElementById("dex");
-con = document.getElementById("con");
-int = document.getElementById("int");
-wis = document.getElementById("wis");
-cha = document.getElementById("cha");
-strmod = document.getElementById("strmod");
-dexmod = document.getElementById("dexmod");
-conmod = document.getElementById("conmod");
-intmod = document.getElementById("intmod");
-wismod = document.getElementById("wismod");
-chamod = document.getElementById("chamod");
+
+const level = document.getElementById("character_level");
+const str = document.getElementById("str");
+const dex = document.getElementById("dex");
+const con = document.getElementById("con");
+const int = document.getElementById("int");
+const wis = document.getElementById("wis");
+const cha = document.getElementById("cha");
+const strmod = document.getElementById("strmod");
+const dexmod = document.getElementById("dexmod");
+const conmod = document.getElementById("conmod");
+const intmod = document.getElementById("intmod");
+const wismod = document.getElementById("wismod");
+const chamod = document.getElementById("chamod");
 // proficiency_mod = proficiencymod(level);
-proficiencies = [];
-strsave = document.getElementById("strength_throw");
-dexsave = document.getElementById("dexterity_throw");
-consave = document.getElementById("tution_throw");
-intsave = document.getElementById("intelligence_throw");
-wissave = document.getElementById("wisdom_throw");
-chasave = document.getElementById("charisma_throw");
-athletics = document.getElementById("athletics_check");
-acrobatics = document.getElementById("acrobatics_check");
-sleight = document.getElementById("sleight_check");
-stealth = document.getElementById("stealth_check");
-arcana = document.getElementById("arcana_check");
-history = document.getElementById("history_check");
-investigation = document.getElementById("investigation_check");
-nature = document.getElementById("nature_check");
-religion = document.getElementById("religion_check");
-animal = document.getElementById("animal_check");
-insight = document.getElementById("insight_check");
-medicine = document.getElementById("medicine_check");
-perception = document.getElementById("perception_check");
-survival = document.getElementById("survival_check");
-deception = document.getElementById("deception_check");
-intimidation = document.getElementById("intimidation_check");
-performance = document.getElementById("performance_check");
-persuasion = document.getElementById("persuasion_check");
-totalhitdice = document.getElementById("total_hit_dice");
-remaininghitdice = document.getElementById("remaining_hit_dice");
-hitdietype = document.getElementById("hit_die_type");
-hitpoints = document.getElementById("character_hp_max");
-deathsaves = document.getElementById("death_saves");
+const proficiencies = [''];
+const strsave = document.getElementById("strength_throw");
+const dexsave = document.getElementById("dexterity_throw");
+const consave = document.getElementById("tution_throw");
+const intsave = document.getElementById("intelligence_throw");
+const wissave = document.getElementById("wisdom_throw");
+const chasave = document.getElementById("charisma_throw");
+const athletics = document.getElementById("athletics_check");
+const acrobatics = document.getElementById("acrobatics_check");
+const sleight = document.getElementById("sleight_check");
+const stealth = document.getElementById("stealth_check");
+const arcana = document.getElementById("arcana_check");
+const history = document.getElementById("history_check");
+const investigation = document.getElementById("investigation_check");
+const nature = document.getElementById("nature_check");
+const religion = document.getElementById("religion_check");
+const animal = document.getElementById("animal_check");
+const insight = document.getElementById("insight_check");
+const medicine = document.getElementById("medicine_check");
+const perception = document.getElementById("perception_check");
+const survival = document.getElementById("survival_check");
+const deception = document.getElementById("deception_check");
+const intimidation = document.getElementById("intimidation_check");
+const performance = document.getElementById("performance_check");
+const persuasion = document.getElementById("persuasion_check");
+const totalhitdice = document.getElementById("total_hit_dice");
+const remaininghitdice = document.getElementById("remaining_hit_dice");
+const hitdietype = document.getElementById("hit_die_type");
+const hitpoints = document.getElementById("character_hp_max");
+const deathsaves = document.getElementById("death_saves");
 // spellsavedc = (spellsave);
 // spellattackbonus = (spellattack);
-initiative = document.getElementById("character_initiative");
-speed = document.getElementById("character_speed");
+const initiative = document.getElementById("character_initiative");
+const speed = document.getElementById("character_speed");
 // ac = document.getElementById(armorclass);
 
-  constructor(private service: SheetService) { }
-
-  ngOnInit(): void {
-
-  }
 
   //==================================================================DICE ROLLS===========================================================================
-  d4() {
+  function d4() {
     var d4 = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
     return d4;
   }
-  d6() {
+  function d6() {
   var d6 = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
   return d6;
   }
-  d8() {
+  function d8() {
     var d8 = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
     return d8;
   }
-  d10 () {
+  function d10 () {
     var d10 = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
     return d10;
   }
-  d12 () {
+  function d12 () {
     var d12 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
     return d12;
   }
-  d20 () {
+  function d20 () {
     var d20 = Math.floor(Math.random() * (20 - 1 + 1)) + 1;
     return d20;
   }
 // ========================================================ROLLING STATS=====================================================================================
-strength(){
-  let strength = [d6(), d6(), d6(), d6()];
-  strength.sort();
-  console.log(strength);
-  strength.splice(0,1);
-  console.log(strength);
-  let strsum = strength.reduce((partial_sum, a) => partial_sum + a,0);
-  console.log(strsum);
-  this.str!.innerHTML= `${strsum}`;
-  this.strmod!.innerHTML= `${this.mod(strsum)}`
-  return strsum;
-}
-dexterity(){
-  let str = [d6(), d6(), d6(), d6()];
-  str.sort();
-  console.log(str);
-  str.splice(0,1);
-  console.log(str);
-  const dexsum = str.reduce((partial_sum, a) => partial_sum + a,0);
-  console.log(dexsum);
-  this.dex!.innerHTML= `${dexsum}`;
-  this.dexmod!.innerHTML= `${this.mod(dexsum)}`
-  return dexsum;
-}
-constitution(){
-  let str = [d6(), d6(), d6(), d6()];
-  str.sort();
-  console.log(str);
-  str.splice(0,1);
-  console.log(str);
-  const consum = str.reduce((partial_sum, a) => partial_sum + a,0);
-  console.log(consum);
-  this.con!.innerHTML= `${consum}`;
-  this.conmod!.innerHTML= `${this.mod(consum)}`
-  return consum;
-}
-intellect(){
-  let str = [d6(), d6(), d6(), d6()];
-  str.sort();
-  console.log(str);
-  str.splice(0,1);
-  console.log(str);
-  const intsum = str.reduce((partial_sum, a) => partial_sum + a,0);
-  console.log(intsum);
-  this.int!.innerHTML= `${intsum}`;
-  this.intmod!.innerHTML= `${this.mod(intsum)}`
-  return intsum;
-}
-wisdom(){
-  let str = [d6(), d6(), d6(), d6()];
-  str.sort();
-  console.log(str);
-  str.splice(0,1);
-  console.log(str);
-  const wissum = str.reduce((partial_sum, a) => partial_sum + a,0);
-  console.log(wissum);
-  this.wis!.innerHTML= `${wissum}`;
-  this.wismod!.innerHTML= `${this.mod(wissum)}`
-  return wissum;
-}
-charisma(){
-  let str = [d6(), d6(), d6(), d6()];
-  str.sort();
-  console.log(str);
-  str.splice(0,1);
-  console.log(str);
-  const chasum = str.reduce((partial_sum, a) => partial_sum + a,0);
-  console.log(chasum);
-  this.cha!.innerHTML= `${chasum}`;
-  this.chamod!.innerHTML= `${this.mod(chasum)}`
-  return chasum;
-}
+// function strength(){
+//   let strength = [d6(), d6(), d6(), d6()];
+//   strength.sort();
+//   console.log(strength);
+//   strength.splice(0,1);
+//   console.log(strength);
+//   let strsum = strength.reduce((partial_sum, a) => partial_sum + a,0);
+//   console.log(strsum);
+//   str.innerHTML= `${strsum}`;
+//   strmod.innerHTML= `${mod(strsum)}`
+//   return strsum;
+// }
+// function dexterity(){
+//   let str = [d6(), d6(), d6(), d6()];
+//   str.sort();
+//   console.log(str);
+//   str.splice(0,1);
+//   console.log(str);
+//   const dexsum = str.reduce((partial_sum, a) => partial_sum + a,0);
+//   console.log(dexsum);
+//   this.dex!.innerHTML= `${dexsum}`;
+//   this.dexmod!.innerHTML= `${this.mod(dexsum)}`
+//   return dexsum;
+// }
+// function constitution(){
+//   let str = [d6(), d6(), d6(), d6()];
+//   str.sort();
+//   console.log(str);
+//   str.splice(0,1);
+//   console.log(str);
+//   const consum = str.reduce((partial_sum, a) => partial_sum + a,0);
+//   console.log(consum);
+//   this.con!.innerHTML= `${consum}`;
+//   this.conmod!.innerHTML= `${this.mod(consum)}`
+//   return consum;
+// }
+// function intellect(){
+//   let str = [d6(), d6(), d6(), d6()];
+//   str.sort();
+//   console.log(str);
+//   str.splice(0,1);
+//   console.log(str);
+//   const intsum = str.reduce((partial_sum, a) => partial_sum + a,0);
+//   console.log(intsum);
+//   this.int!.innerHTML= `${intsum}`;
+//   this.intmod!.innerHTML= `${this.mod(intsum)}`
+//   return intsum;
+// }
+// function wisdom(){
+//   let str = [d6(), d6(), d6(), d6()];
+//   str.sort();
+//   console.log(str);
+//   str.splice(0,1);
+//   console.log(str);
+//   const wissum = str.reduce((partial_sum, a) => partial_sum + a,0);
+//   console.log(wissum);
+//   this.wis!.innerHTML= `${wissum}`;
+//   this.wismod!.innerHTML= `${this.mod(wissum)}`
+//   return wissum;
+// }
+// function charisma(){
+//   let str = [d6(), d6(), d6(), d6()];
+//   str.sort();
+//   console.log(str);
+//   str.splice(0,1);
+//   console.log(str);
+//   const chasum = str.reduce((partial_sum, a) => partial_sum + a,0);
+//   console.log(chasum);
+//   this.cha!.innerHTML= `${chasum}`;
+//   this.chamod!.innerHTML= `${this.mod(chasum)}`
+//   return chasum;
+// }
 
 //================================================================STAT MODIFIER================================================================================
-mod = (x: number) => {
+function mod = (x: number) => {
   switch (x) {
     case 0 : case 1:
         return -5;
@@ -205,28 +194,11 @@ mod = (x: number) => {
       return 0;
   }
 }
-//====================================================================PROFICIENCY MODIFIER====================================================================
-proficiencymod = (level : number) => {
-  switch (level) {
-    case 1 : case 2: case 3 : case 4:
-        return 2;
-    case 5 : case 6: case 7 : case 8:
-        return 3;
-    case 9 : case 10: case 11 : case 12:
-      return 4;
-    case 13 : case 14: case 15 : case 16:
-      return 5;
-    case 17: case 18: case 19 : case 20:
-      return 6;
-    default:
-      return 0;
-  }
-}
 
 //====================================================SAVING THROWS=========================================================================================
-strsaving = (stat: String) => {
+const strsaving = (stat: String) => {
   if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + strmod);
+    let total = (d20() +  + strmod);
     console.log('Your dice roll ${d20} and your strength modifier is ${strmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
     return total;
   } else {
@@ -235,7 +207,7 @@ strsaving = (stat: String) => {
     return total;
   }
 }
-dexsaving = (stat: String) => {
+const dexsaving = (stat: String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + dexmod);
     console.log('Your dice roll ${d20} and your dexterity modifier is ${dexmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -246,7 +218,7 @@ dexsaving = (stat: String) => {
     return total;
   }
 }
-consaving = (stat: String) => {
+const consaving = (stat: String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + conmod);
     console.log('Your dice roll ${d20} and your constitution modifier is ${conmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -257,7 +229,7 @@ consaving = (stat: String) => {
     return total;
   }
 }
-intsaving = (stat: String) => {
+const intsaving = (stat: String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + intmod);
     console.log('Your dice roll ${d20} and your intellegence modifier is ${intmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -268,7 +240,7 @@ intsaving = (stat: String) => {
     return total;
   }
 }
-wissaving = (stat: String) => {
+const wissaving = (stat: String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + wismod);
     console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -279,7 +251,7 @@ wissaving = (stat: String) => {
     return total;
   }
 }
-chasaving = (stat: String) => {
+const chasaving = (stat: String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + chamod);
     console.log('Your dice roll ${d20} and your charisma modifier is ${chamod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -292,7 +264,7 @@ chasaving = (stat: String) => {
 }
 
 //==============================================STRENGTH SKILLS================================================================================================
-athleticsskill = (stat: String) => {
+const athleticsskill = (stat: String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + strmod);
     console.log('Your dice roll ${d20} and your strength modifier is ${strmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -305,7 +277,7 @@ athleticsskill = (stat: String) => {
 }
 
 //=================================================DEXTERITY SKILLS===============================================================================================
-acrobaticsskill = (stat: String) => {
+const acrobaticsskill = (stat: String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + dexmod);
     console.log('Your dice roll ${d20} and your dexterity modifier is ${dexmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -316,7 +288,7 @@ acrobaticsskill = (stat: String) => {
     return total;
   }
 }
-sleightskill = (stat: String) => {
+const sleightskill = (stat: String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + dexmod);
     console.log('Your dice roll ${d20} and your dexterity modifier is ${dexmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -327,7 +299,7 @@ sleightskill = (stat: String) => {
     return total;
   }
 }
-stealthskill = (stat: String) => {
+const stealthskill = (stat: String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + dexmod);
     console.log('Your dice roll ${d20} and your dexterity modifier is ${dexmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -339,7 +311,7 @@ stealthskill = (stat: String) => {
   }
 }
 //======================================INTELLECT SKILLS==========================================================================================================
-arcanaskill = (stat:String) => {
+const arcanaskill = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + intmod);
     console.log('Your dice roll ${d20} and your intellegence modifier is ${intmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -350,7 +322,7 @@ arcanaskill = (stat:String) => {
     return total;
   }
 }
-historyskill = (stat:String) => {
+const historyskill = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + intmod);
     console.log('Your dice roll ${d20} and your intellegence modifier is ${intmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -361,7 +333,7 @@ historyskill = (stat:String) => {
     return total;
   }
 }
-investigationskill = (stat:String) => {
+const investigationskill = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + intmod);
     console.log('Your dice roll ${d20} and your intellegence modifier is ${intmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -372,7 +344,7 @@ investigationskill = (stat:String) => {
     return total;
   }
 }
-passiveinvestigation = (stat:String) => {
+const passiveinvestigation = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + intmod);
     return total;
@@ -382,7 +354,7 @@ passiveinvestigation = (stat:String) => {
   }
 }
 //=============================================WISDOM SKILLS ====================================================================================================
-natureskill = (stat:String) => {
+const natureskill = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + wismod);
     console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -393,7 +365,7 @@ natureskill = (stat:String) => {
     return total;
   }
 }
-religionskill = (stat:String) => {
+const religionskill = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + wismod);
     console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -404,7 +376,7 @@ religionskill = (stat:String) => {
     return total;
   }
 }
-animalskill = (stat:String) => {
+const animalskill = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + wismod);
     console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -415,7 +387,7 @@ animalskill = (stat:String) => {
     return total;
   }
 }
-insightskill = (stat:String) => {
+const insightskill = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + wismod);
     console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -426,7 +398,7 @@ insightskill = (stat:String) => {
     return total;
   }
 }
-passiveinsight = (stat:String) => {
+const passiveinsight = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + wismod);
     return total;
@@ -435,18 +407,7 @@ passiveinsight = (stat:String) => {
     return total;
   }
 }
-medicineskill = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} a total of ${total}');
-    return total;
-  }
-}
-perceptionskill = (stat:String) => {
+const medicineskill = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + wismod);
     console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -457,7 +418,18 @@ perceptionskill = (stat:String) => {
     return total;
   }
 }
-passiveperception = (stat:String) => {
+const perceptionskill = (stat:String) => {
+  if (proficiencies.includes(stat)) {
+    let total = (d20() + proficiencymod(level) + wismod);
+    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
+    return total;
+  } else {
+    let total = (d20() + wismod);
+    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} a total of ${total}');
+    return total;
+  }
+}
+const passiveperception = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + wismod);
     return total;
@@ -466,7 +438,7 @@ passiveperception = (stat:String) => {
     return total;
   }
 }
-survivalskill = (stat:String) => {
+const survivalskill = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + wismod);
     console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -478,7 +450,7 @@ survivalskill = (stat:String) => {
   }
 }
 //===============================CHARISMA SKILLS================================================================================================================
-deceptionskill = (stat:String) => {
+const deceptionskill = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + chamod);
     console.log('Your dice roll ${d20} and your charisma modifier is ${chamod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -489,7 +461,7 @@ deceptionskill = (stat:String) => {
     return total;
   }
 }
-intimidationskill = (stat:String) => {
+const intimidationskill = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + chamod);
     console.log('Your dice roll ${d20} and your charisma modifier is ${chamod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -500,7 +472,7 @@ intimidationskill = (stat:String) => {
     return total;
   }
 }
-performanceskill = (stat:String) => {
+const performanceskill = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + chamod);
     console.log('Your dice roll ${d20} and your charisma modifier is ${chamod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -511,7 +483,7 @@ performanceskill = (stat:String) => {
     return total;
   }
 }
-persuasionskill = (stat:String) => {
+const persuasionskill = (stat:String) => {
   if (proficiencies.includes(stat)) {
     let total = (d20() + proficiencymod(level) + chamod);
     console.log('Your dice roll ${d20} and your charisma modifier is ${chamod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
@@ -523,462 +495,11 @@ persuasionskill = (stat:String) => {
   }
 }
 // //=========================================TOTAL HIT POINTS======================================================================================
-hitdice = (stat:String) => {
+  // const hitdice = (stat:String) => {
 
 
-  private getClass(index: string) {
-    this.service.getClass(this.character.char_class).subscribe(
-      // (data => this.char_class = data)
-    );
-  }
+  // }
 
-  //==================================================================DICE ROLLS===========================================================================
-  d4() {
-    var d4 = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
-    return d4;
-  }
-  d6() {
-  var d6 = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
-  return d6;
-  }
-  d8() {
-    var d8 = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-    return d8;
-  }
-  d10 () {
-    var d10 = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
-    return d10;
-  }
-  d12 () {
-    var d12 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-    return d12;
-  }
-  d20 () {
-    var d20 = Math.floor(Math.random() * (20 - 1 + 1)) + 1;
-    return d20;
-  }
-// ========================================================ROLLING STATS=====================================================================================
-strength(){
-  let strength = [d6(), d6(), d6(), d6()];
-  strength.sort();
-  alert(strength);
-  strength.splice(0,1);
-  alert(strength);
-  let strsum = strength.reduce((partial_sum, a) => partial_sum + a,0);
-  alert(strsum);
-  this.str!.innerHTML= `${strsum}`;
-  this.strmod!.innerHTML= `${this.mod(strsum)}`
-  return strsum;
-}
-dexterity(){
-  let dex = [d6(), d6(), d6(), d6()];
-  dex.sort();
-  alert(dex);
-  dex.splice(0,1);
-  console.log(dex);
-  const dexsum = dex.reduce((partial_sum, a) => partial_sum + a,0);
-  console.log(dexsum);
-  this.dex!.innerHTML= `${dexsum}`;
-  this.dexmod!.innerHTML= `${this.mod(dexsum)}`
-  return dexsum;
-}
-constitution(){
-  let con = [d6(), d6(), d6(), d6()];
-  con.sort();
-  alert(con);
-  con.splice(0,1);
-  alert(con);
-  const consum = con.reduce((partial_sum, a) => partial_sum + a,0);
-  console.log(consum);
-  this.con!.innerHTML= `${consum}`;
-  this.conmod!.innerHTML= `${this.mod(consum)}`
-  return consum;
-}
-intellect(){
-  let int = [d6(), d6(), d6(), d6()];
-  int.sort();
-  alert(int);
-  int.splice(0,1);
-  console.log(int);
-  const intsum = int.reduce((partial_sum, a) => partial_sum + a,0);
-  console.log(intsum);
-  this.int!.innerHTML= `${intsum}`;
-  this.intmod!.innerHTML= `${this.mod(intsum)}`
-  return intsum;
-}
-wisdom(){
-  let wis = [d6(), d6(), d6(), d6()];
-  wis.sort();
-  alert(wis);
-  wis.splice(0,1);
-  alert(wis);
-  const wissum = wis.reduce((partial_sum, a) => partial_sum + a,0);
-  console.log(wissum);
-  this.wis!.innerHTML= `${wissum}`;
-  this.wismod!.innerHTML= `${this.mod(wissum)}`
-  return wissum;
-}
-charisma(){
-  let cha = [d6(), d6(), d6(), d6()];
-  cha.sort();
-  alert(cha);
-  cha.splice(0,1);
-  console.log(cha);
-  const chasum = cha.reduce((partial_sum, a) => partial_sum + a,0);
-  console.log(chasum);
-  this.cha!.innerHTML= `${chasum}`;
-  this.chamod!.innerHTML= `${this.mod(chasum)}`
-  return chasum;
-}
-
-//================================================================STAT MODIFIER================================================================================
-mod = (x: number) => {
-  switch (x) {
-    case 0 : case 1:
-        return -5;
-    case 2: case 3:
-        return -4;
-    case 4: case 5:
-      return -3;
-    case 6: case 7:
-      return -2;
-    case 8: case 9:
-      return -1;
-    case 10: case 11:
-      return 0;
-    case 12: case 13:
-        return 1;
-    case 14: case 15:
-      return 2;
-    case 16: case 17:
-      return 3;
-    case 18: case 19:
-      return 4;
-    case 20: case 21:
-      return 5;
-    default:
-      return 0;
-  }
-}
-//====================================================================PROFICIENCY MODIFIER====================================================================
-proficiencymod = (level : number) => {
-  switch (level) {
-    case 1 : case 2: case 3 : case 4:
-        return 2;
-    case 5 : case 6: case 7 : case 8:
-        return 3;
-    case 9 : case 10: case 11 : case 12:
-      return 4;
-    case 13 : case 14: case 15 : case 16:
-      return 5;
-    case 17: case 18: case 19 : case 20:
-      return 6;
-    default:
-      return 0;
-  }
-}
-
-//====================================================SAVING THROWS=========================================================================================
-strsaving = (stat: String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + strmod);
-    console.log('Your dice roll ${d20} and your strength modifier is ${strmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + strmod);
-    console.log('Your dice roll ${d20} and your strength modifier is ${strmod} a total of ${total}');
-    return total;
-  }
-}
-dexsaving = (stat: String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + dexmod);
-    console.log('Your dice roll ${d20} and your dexterity modifier is ${dexmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + dexmod);
-    console.log('Your dice roll ${d20} and your dexterity modifier is ${dexmod} a total of ${total}');
-    return total;
-  }
-}
-consaving = (stat: String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + conmod);
-    console.log('Your dice roll ${d20} and your constitution modifier is ${conmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + conmod);
-    console.log('Your dice roll ${d20} and your constitution modifier is ${conmod} a total of ${total}');
-    return total;
-  }
-}
-intsaving = (stat: String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + intmod);
-    console.log('Your dice roll ${d20} and your intellegence modifier is ${intmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + intmod);
-    console.log('Your dice roll ${d20} and your intelligence modifier is ${intmod} a total of ${total}');
-    return total;
-  }
-}
-wissaving = (stat: String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} a total of ${total}');
-    return total;
-  }
-}
-chasaving = (stat: String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + chamod);
-    console.log('Your dice roll ${d20} and your charisma modifier is ${chamod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + chamod);
-    console.log('Your dice roll ${d20} and your charisma modifier is ${chamod} a total of ${total}');
-    return total;
-  }
-}
-
-//==============================================STRENGTH SKILLS================================================================================================
-athleticsskill = (stat: String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + strmod);
-    console.log('Your dice roll ${d20} and your strength modifier is ${strmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + strmod);
-    console.log('Your dice roll ${d20} and your strength modifier is ${strmod} a total of ${total}');
-    return total;
-  }
-}
-
-//=================================================DEXTERITY SKILLS===============================================================================================
-acrobaticsskill = (stat: String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + dexmod);
-    console.log('Your dice roll ${d20} and your dexterity modifier is ${dexmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + dexmod);
-    console.log('Your dice roll ${d20} and your dexterity modifier is ${dexmod} a total of ${total}');
-    return total;
-  }
-}
-sleightskill = (stat: String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + dexmod);
-    console.log('Your dice roll ${d20} and your dexterity modifier is ${dexmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + dexmod);
-    console.log('Your dice roll ${d20} and your dexterity modifier is ${dexmod} a total of ${total}');
-    return total;
-  }
-}
-stealthskill = (stat: String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + dexmod);
-    console.log('Your dice roll ${d20} and your dexterity modifier is ${dexmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + dexmod);
-    console.log('Your dice roll ${d20} and your dexterity modifier is ${dexmod} a total of ${total}');
-    return total;
-  }
-}
-//======================================INTELLECT SKILLS==========================================================================================================
-arcanaskill = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + intmod);
-    console.log('Your dice roll ${d20} and your intellegence modifier is ${intmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + intmod);
-    console.log('Your dice roll ${d20} and your intelligence modifier is ${intmod} a total of ${total}');
-    return total;
-  }
-}
-historyskill = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + intmod);
-    console.log('Your dice roll ${d20} and your intellegence modifier is ${intmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + intmod);
-    console.log('Your dice roll ${d20} and your intelligence modifier is ${intmod} a total of ${total}');
-    return total;
-  }
-}
-investigationskill = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + intmod);
-    console.log('Your dice roll ${d20} and your intellegence modifier is ${intmod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + intmod);
-    console.log('Your dice roll ${d20} and your intelligence modifier is ${intmod} a total of ${total}');
-    return total;
-  }
-}
-passiveinvestigation = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + intmod);
-    return total;
-  } else {
-    let total = (d20() + intmod);
-    return total;
-  }
-}
-//=============================================WISDOM SKILLS ====================================================================================================
-natureskill = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} a total of ${total}');
-    return total;
-  }
-}
-religionskill = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} a total of ${total}');
-    return total;
-  }
-}
-animalskill = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} a total of ${total}');
-    return total;
-  }
-}
-insightskill = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} a total of ${total}');
-    return total;
-  }
-}
-passiveinsight = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + wismod);
-    return total;
-  } else {
-    let total = (d20() + wismod);
-    return total;
-  }
-}
-medicineskill = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} a total of ${total}');
-    return total;
-  }
-}
-perceptionskill = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} a total of ${total}');
-    return total;
-  }
-}
-passiveperception = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + wismod);
-    return total;
-  } else {
-    let total = (d20() + wismod);
-    return total;
-  }
-}
-survivalskill = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + wismod);
-    console.log('Your dice roll ${d20} and your wisdom modifier is ${wismod} a total of ${total}');
-    return total;
-  }
-}
-//===============================CHARISMA SKILLS================================================================================================================
-deceptionskill = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + chamod);
-    console.log('Your dice roll ${d20} and your charisma modifier is ${chamod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + chamod);
-    console.log('Your dice roll ${d20} and your charisma modifier is ${chamod} a total of ${total}');
-    return total;
-  }
-}
-intimidationskill = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + chamod);
-    console.log('Your dice roll ${d20} and your charisma modifier is ${chamod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + chamod);
-    console.log('Your dice roll ${d20} and your charisma modifier is ${chamod} a total of ${total}');
-    return total;
-  }
-}
-performanceskill = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + chamod);
-    console.log('Your dice roll ${d20} and your charisma modifier is ${chamod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + chamod);
-    console.log('Your dice roll ${d20} and your charisma modifier is ${chamod} a total of ${total}');
-    return total;
-  }
-}
-persuasionskill = (stat:String) => {
-  if (proficiencies.includes(stat)) {
-    let total = (d20() + proficiencymod(level) + chamod);
-    console.log('Your dice roll ${d20} and your charisma modifier is ${chamod} and your proficiency bonus of ${proficiencymod(level)} a total of ${total}');
-    return total;
-  } else {
-    let total = (d20() + chamod);
-    console.log('Your dice roll ${d20} and your charisma modifier is ${chamod} a total of ${total}');
-    return total;
-  }
-}
-//=========================================TOTAL HIT POINTS======================================================================================
-hitdice = (stat:String) => {
 
 
 // const pokeId = document.getElementById('poke-id')
@@ -1010,19 +531,19 @@ hitdice = (stat:String) => {
 //      pokeImg.setAttribute("height", 300);
 
 //  }
-fetchCall(cls: String) {
+function fetchCall(cls: String) {
   //  let classname = document.getElementById('index').value;
    fetch(`https://www.dnd5eapi.co/api/classes/classes/${cls}`)
        .then((response) => response.json()) // this parses the body of the response into a JS object
-       .then(renderCharacter); // we pass that JS object to that function here
+      //  .then(renderCharacter); // we pass that JS object to that function here
 }
-const hitdie = document.getElementsByClassName('hit_die')
+// const hitdie = document.getElementsByClassName('hit_die')
 const respId = document.getElementById('resp-id')
 const pokeName = document.getElementById('resp-name')
 const pokeImg = document.getElementById('resp-sprite');
 const button = document.getElementById('btn')
 // const hitdice = (hitdicemod);
-renderCharacter(data) {
+// function renderCharacter(may pass in 'data') {
   // we're going to modify the elements on the index.html page
   // by plugging in the values of the properties of the data recevievd
 
@@ -1036,22 +557,22 @@ renderCharacter(data) {
 
 }
 
-hitpointtotal = () => {
+const hitpointtotal = () => {
   if (hitdie == 6) {
-    let total = (conmod * level) + (level * d6());
+    let total: number = (conmod * level) + (level * d6());
     return total;
   } else if (hitdie == 8){
-    let total = (conmod * level) + (level * d8());
+    let total: number  = (conmod * level) + (level * d8());
     return total;
   } else if (hitdie == 10) {
-    let total = (conmod * level) + (level * d10());
+    let total: number  = (conmod * level) + (level * d10());
     return total;
   } else (hitdie == 12)
-  let total = (conmod * level) + (level * d12());
+  let total: number  = (conmod * level) + (level * d12());
   return total;
 }
 
-rollsaves = () => {
+const rollsaves = () => {
   let roll = d20();
   if (roll > 10) {
     console.log("Your body is succeeding in it's own revival with a ${roll} roll.")
