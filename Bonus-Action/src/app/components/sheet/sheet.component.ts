@@ -110,70 +110,70 @@ speed = document.getElementById("character_speed");
 strength(){
   let strength = [d6(), d6(), d6(), d6()];
   strength.sort();
-  console.log(strength);
+  alert(strength);
   strength.splice(0,1);
-  console.log(strength);
+  alert(strength);
   let strsum = strength.reduce((partial_sum, a) => partial_sum + a,0);
-  console.log(strsum);
+  alert(strsum);
   this.str!.innerHTML= `${strsum}`;
   this.strmod!.innerHTML= `${this.mod(strsum)}`
   return strsum;
 }
 dexterity(){
-  let str = [d6(), d6(), d6(), d6()];
-  str.sort();
-  console.log(str);
-  str.splice(0,1);
-  console.log(str);
-  const dexsum = str.reduce((partial_sum, a) => partial_sum + a,0);
+  let dex = [d6(), d6(), d6(), d6()];
+  dex.sort();
+  alert(dex);
+  dex.splice(0,1);
+  console.log(dex);
+  const dexsum = dex.reduce((partial_sum, a) => partial_sum + a,0);
   console.log(dexsum);
   this.dex!.innerHTML= `${dexsum}`;
   this.dexmod!.innerHTML= `${this.mod(dexsum)}`
   return dexsum;
 }
 constitution(){
-  let str = [d6(), d6(), d6(), d6()];
-  str.sort();
-  console.log(str);
-  str.splice(0,1);
-  console.log(str);
-  const consum = str.reduce((partial_sum, a) => partial_sum + a,0);
+  let con = [d6(), d6(), d6(), d6()];
+  con.sort();
+  alert(con);
+  con.splice(0,1);
+  alert(con);
+  const consum = con.reduce((partial_sum, a) => partial_sum + a,0);
   console.log(consum);
   this.con!.innerHTML= `${consum}`;
   this.conmod!.innerHTML= `${this.mod(consum)}`
   return consum;
 }
 intellect(){
-  let str = [d6(), d6(), d6(), d6()];
-  str.sort();
-  console.log(str);
-  str.splice(0,1);
-  console.log(str);
-  const intsum = str.reduce((partial_sum, a) => partial_sum + a,0);
+  let int = [d6(), d6(), d6(), d6()];
+  int.sort();
+  alert(int);
+  int.splice(0,1);
+  console.log(int);
+  const intsum = int.reduce((partial_sum, a) => partial_sum + a,0);
   console.log(intsum);
   this.int!.innerHTML= `${intsum}`;
   this.intmod!.innerHTML= `${this.mod(intsum)}`
   return intsum;
 }
 wisdom(){
-  let str = [d6(), d6(), d6(), d6()];
-  str.sort();
-  console.log(str);
-  str.splice(0,1);
-  console.log(str);
-  const wissum = str.reduce((partial_sum, a) => partial_sum + a,0);
+  let wis = [d6(), d6(), d6(), d6()];
+  wis.sort();
+  alert(wis);
+  wis.splice(0,1);
+  alert(wis);
+  const wissum = wis.reduce((partial_sum, a) => partial_sum + a,0);
   console.log(wissum);
   this.wis!.innerHTML= `${wissum}`;
   this.wismod!.innerHTML= `${this.mod(wissum)}`
   return wissum;
 }
 charisma(){
-  let str = [d6(), d6(), d6(), d6()];
-  str.sort();
-  console.log(str);
-  str.splice(0,1);
-  console.log(str);
-  const chasum = str.reduce((partial_sum, a) => partial_sum + a,0);
+  let cha = [d6(), d6(), d6(), d6()];
+  cha.sort();
+  alert(cha);
+  cha.splice(0,1);
+  console.log(cha);
+  const chasum = cha.reduce((partial_sum, a) => partial_sum + a,0);
   console.log(chasum);
   this.cha!.innerHTML= `${chasum}`;
   this.chamod!.innerHTML= `${this.mod(chasum)}`
