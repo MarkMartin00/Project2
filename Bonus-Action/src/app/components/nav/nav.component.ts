@@ -1,7 +1,7 @@
 import { Component, OnInit, Type } from '@angular/core';
-import { kStringMaxLength } from 'buffer';
-import { stat } from 'fs';
-import { totalmem } from 'os';
+// import { kStringMaxLength } from 'buffer';
+// import { stat } from 'fs';
+// import { totalmem } from 'os';
 
 @Component({
   selector: 'app-nav',
@@ -642,10 +642,17 @@ export class NavComponent implements OnInit {
 
 // const speed = (speedcalc);
 
+// const strmod = mod(str);
+// const dexmod = mod(dex);
+// const conmod = mod(con);
+// const intmod = mod(int);
+// const wismod = mod(wis);
+// const chamod = mod(cha);
 
 // const passiveper = passiveperception();
 // const passiveins = passiveinsight();
 // const passiveinves = passiveinvestigation();
+
 // strsave.addEventListener("click", strsaving);
 // dexsave.addEventListener("click", dexsaving);
 // consave.addEventListener("click", consaving);
