@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 import { Spell } from "./spell";
 import { SheetService } from "../services/sheet.service";
-import { Features } from "./feats";
-=======
-import { Spell } from './spell';
-import { SheetService } from '../services/sheet.service';
->>>>>>> 8e612f2058089984f4e43295cafc4a5e5238f201
+import { Features } from "./features";
 
 export class PlayerCharacter {
   service: SheetService = new SheetService();
