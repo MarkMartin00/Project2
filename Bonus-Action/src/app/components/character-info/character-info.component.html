@@ -2,14 +2,11 @@
 <div id="container">
   <h2 id="character_name">Name</h2>
   <div class="dropdown">
-    <button class="dropdown-toggle" type="button" id="character_class" data-bs-toggle="dropdown"
-      aria-expanded="false">
-      Class List
-    </button>
-    <ul *ngFor="let class of classes"  class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <li class="dropdown-item">{{class.name}}</li>
+    <select>
+      <option value="default">Choose your Class</option>
+      <option *ngFor="let class of classes" [value]="class">{{class.name}}</option>
       <br>
-    </ul>
+    </select>
   </div>
   <div id="character_level">Level</div>
   <div id="character_background">Background</div>
