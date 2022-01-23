@@ -15,6 +15,7 @@ import { BattleStatsComponent } from './components/battle-stats/battle-stats.com
 import { CharacterStatsComponent } from './components/character-stats/character-stats.component';
 import { CharacterSavesComponent } from './components/character-saves/character-saves.component';
 import { CharacterAbilitiesComponent } from './components/character-abilities/character-abilities.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CharacterAbilitiesComponent } from './components/character-abilities/ch
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [SheetService],
   bootstrap: [AppComponent]
