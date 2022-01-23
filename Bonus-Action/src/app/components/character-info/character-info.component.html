@@ -1,7 +1,16 @@
 <!--The character info section-->
 <div id="container">
   <h2 id="character_name">Name</h2>
-  <div id="character_class">Class</div>
+  <div class="dropdown">
+    <button class="dropdown-toggle" type="button" id="character_class" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      Class List
+    </button>
+    <ul *ngFor="let class of classes"  class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li class="dropdown-item">{{class.name}}</li>
+      <br>
+    </ul>
+  </div>
   <div id="character_level">Level</div>
   <div id="character_background">Background</div>
   <div id="character_race">Race</div>
