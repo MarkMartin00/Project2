@@ -1,6 +1,7 @@
 import { PlayerCharacter } from "./player-character";
 import { SheetService } from "../services/sheet.service";
 import { R3DeclareNgModuleFacade } from "@angular/compiler/src/compiler_facade_interface";
+import { Features } from "./feats";
 
 export class Spell {
   service: SheetService = new SheetService;
@@ -77,6 +78,10 @@ export class Spell {
     this.subclasses = subclasses;
 
   }
+
+
+
+
 
 
 
