@@ -1,6 +1,7 @@
 import { PlayerCharacter } from "./player-character";
 import { SheetService } from "../services/sheet.service";
 import { R3DeclareNgModuleFacade } from "@angular/compiler/src/compiler_facade_interface";
+import { Features } from "./features";
 
 export class Spell {
   service: SheetService = new SheetService;
@@ -76,6 +77,10 @@ export class Spell {
     this.area_effect_size = area_effect_size;
     this.subclasses = subclasses;
   }
+
+
+
+
 
 
 

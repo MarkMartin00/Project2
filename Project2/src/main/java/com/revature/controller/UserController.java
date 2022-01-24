@@ -18,7 +18,7 @@ import com.revature.models.User;
 import com.revature.service.UserService;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 	
 	@Autowired

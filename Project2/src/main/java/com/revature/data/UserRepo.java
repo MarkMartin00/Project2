@@ -18,7 +18,7 @@ public interface UserRepo extends JpaRepository <User, Integer> {
 	
 	public void deleteById(int id);
 	
-//	@Query("FROM User WHERE email LIKE %:pattern")
+//	@Query("FROM users WHERE email LIKE %:pattern")
 //	public List<User> findByEmailContains(String pattern);
 
 }

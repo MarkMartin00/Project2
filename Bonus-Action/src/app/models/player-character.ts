@@ -1,5 +1,6 @@
-import { Spell } from './spell';
-import { SheetService } from '../services/sheet.service';
+import { Spell } from "./spell";
+import { SheetService } from "../services/sheet.service";
+import { Features } from "./features";
 
 export class PlayerCharacter {
   service: SheetService = new SheetService();
