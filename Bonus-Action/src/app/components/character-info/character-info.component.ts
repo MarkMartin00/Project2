@@ -2,16 +2,19 @@ import { LogLevel } from '@angular/compiler-cli/private/localize';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { PlayerCharacter } from 'src/app/models/player-character';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, NgModel } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { Template } from '@angular/compiler/src/render3/r3_ast';
 
 @Component({
   selector: 'app-character-info',
   templateUrl: './character-info.component.html',
-  styleUrls: ['./character-info.component.css']
+  styleUrls: ['./character-info.component.css'],
 })
 
 export class CharacterInfoComponent implements OnInit {
+  pc_char: PlayerCharacter;
+  pc_chars: PlayerCharacter[];
   classes: any[] = [];
   spells: any[] = [];
   features: any[] = [];
@@ -22,22 +25,24 @@ export class CharacterInfoComponent implements OnInit {
   feats: any[] = [];
   alignment: string[] = ["Lawful-Good", "Neutral-Good","Chaotic-Good","Lawful-Neutral","True-Neutral",
                       "Chaotic-Neutral","Lawful-Evil","Neutral-Evil","Chaotic-Evil",]
-  char_name: string;
-  char_class: string;
-  char_level: string;
-  char_background: string;
-  char_race: string;
-  char_alignment: string;
-  char_equipment: string;
+  char_name;
+  char_class;
+  char_level;
+  char_background;
+  char_race;
+  char_alignment;
+  char_equipment;
 
-  registerCharacter = (char_name, char_class, char_level, char_background, char_race, char_alignment) => {
-    this.char_name = char_name;
-    this.char_class = char_class;
-    this.char_level = char_level;
-    this.char_background = char_background;
-    this.char_race = char_race;
-    this.char_alignment = char_alignment;
-    console.log(char_name, char_class, char_level, char_background, char_race, char_alignment);
+  public registerCharacter() {
+    let tempCharacter = new PlayerCharacter(this.char_name, this.char_class,
+        this.char_level, this.char_background, this.char_race, this.char_alignment)
+        this.pc_char = tempCharacter;
+        console.log("Character Created!" + tempCharacter);
+  }
+
+  public saveCharacter() {
+    this.pc_chars.push(this.pc_char);
+    console.log(`${this.pc_char.char_name} saved!`)
   }
 
   characterExperience() {

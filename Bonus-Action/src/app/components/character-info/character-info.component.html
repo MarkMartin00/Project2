@@ -1,15 +1,12 @@
 <!--The character info section-->
-<form>
   <div id="container">
     <fieldset style="outline-color: rgb(116, 33, 50);">
       <legend>Character Name</legend>
-      <form id="character_name">
-        <input type="text" placeholder="Character Name"/>
-        </form>
+        <input type="text" name='character-name' [(ngModel)]="char_name" placeholder="Character Name"/>
     </fieldset>
-    <div class="form-group" id="char_name">
+    <div class="form-group" name='character-class'>
       <div class="dropdown">
-        <select name="char_name">
+        <select id="character-class" [(ngModel)]="char_class"  name="character-class">
           <option [ngValue]="null" disabled>Choose your Class</option>
           <option
             *ngFor="let class of classes"
@@ -20,9 +17,9 @@
       </div>
       <br />
     </div>
-    <div class="form-group" id="character_level">
+    <div >
       <div class="dropdown">
-        <select (ngModelChange)="registerCharacter(char_name, char_class, level, char_background, char_race, char_alignment)" name="level">
+        <select id="character_level" [(ngModel)]="char_level" name="character-level">
           <option [ngValue]="null" disabled>Choose the Class Level</option>
           <option
             *ngFor="let lvl of level"
@@ -34,9 +31,9 @@
       </div>
       <br />
     </div>
-    <div class="form-group" id="character_background">
+    <div id="character_background">
       <div class="dropdown">
-        <select (ngModelChange)="registerCharacter(char_name, char_class, level, char_background, char_race, char_alignment)" name="char_background">
+        <select name="char_background" id="character-background" [(ngModel)]="char_background">
           <option [ngValue]="null" disabled>Choose A Background</option>
           <option
             *ngFor="let class of backgrounds"
@@ -48,9 +45,9 @@
       </div>
       <br />
     </div>
-    <div class="form-group" id="character_race">
+    <div id="character-race">
       <div class="dropdown">
-        <select (ngModelChange)="registerCharacter(char_name, char_class, level, char_background, char_race, char_alignment)" name="race">
+        <select name="character-race" id="character-race" [(ngModel)]="char_race">
           <option [ngValue]="null" disabled>Choose your Race</option>
           <option
             *ngFor="let class of race"
@@ -62,9 +59,9 @@
       </div>
       <br />
     </div>
-    <div class="form-group" id="character_alignment">
+    <div id="character-alignment">
       <div class="dropdown">
-        <select (ngModelChange)="registerCharacter(char_name, char_class, level, char_background, char_race, char_alignment)" name="alignment">
+        <select name="char_alignment" [(ngModel)]="char_alignment" name="character-alignment">
           <option [ngValue]="null" disabled>Choose your Alignment</option>
           <option
             *ngFor="let align of alignment"
@@ -73,14 +70,16 @@
           </option>
           <br />
         </select>
-        <button type="submit">
+        <h2>{{char_name}} is a {{char_class}} of level {{char_level}}. With a background of {{char_background}} this
+          {{char_race}} personality aligns {{char_alignment}} </h2>
+        <button (click)="registerCharacter()" type="submit">
           Create Character
         </button>
       </div>
       <br />
     </div>
   </div>
-</form>
+
 <br />
 <form>
 <div id="container">
@@ -97,12 +96,11 @@
     <br />
   </div>
 </div>
-</form>
+
 <fieldset style="outline-color: rgb(116, 33, 50);">
-  <legend>Experience</legend>
+  <!-- <legend>Experience</legend>
   <form id="characterExperience">
     <input type="number" placeholder="Current Xp" />
     <button (click)="characterExperience()">Add</button>
-    <form type="number" id="total_experience">Total Experience</form>
-  </form>
+    <form type="number" id="total_experience">Total Experience</form> -->
 </fieldset>
