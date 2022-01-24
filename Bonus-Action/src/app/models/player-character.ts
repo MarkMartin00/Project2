@@ -112,9 +112,84 @@ export class PlayerCharacter {
   // STAT AUTOMATION
   public calcAC() {
     if ((this.char_class = 'Barbarian')) {
-      this.char_ac += this.getStatModifier(this.char_stats.get("dex")) + this.getStatModifier(this.char_stats.get("con"));
+      if ((this.char_features = 'Unarmored_Defense') && (this.char_equipment = 'shield')) {
+        this.char_ac += 10 + 2 + this.getStatModifier(this.char_stats.get("dex")) + this.getStatModifier(this.char_stats.get("con"));
+        return this.char_ac;
+      } else if (this.char_features = 'Unarmored Defense') {
+        this.char_ac += 10 + this.getStatModifier(this.char_stats.get("dex")) + this.getStatModifier(this.char_stats.get("con"));
+        return this.char_ac;
+      }
+    } else if ((this.char_class = 'Monk')) {
+      if ((this.char_features = 'Unarmored_Defense') && (this.char_equipment = 'shield')) {
+        this.char_ac += 10 + 2 + this.getStatModifier(this.char_stats.get("dex")) + this.getStatModifier(this.char_stats.get("wis"));
+        return this.char_ac;
+      } else if (this.char_features = 'Unarmored Defense') {
+        this.char_ac += 10 + this.getStatModifier(this.char_stats.get("dex")) + this.getStatModifier(this.char_stats.get("wis"));
+        return this.char_ac;
+      }
+    } else if ((this.char_class = '')) {
+      if ((this.char_equipment = 'padded_armor') && (this.char_equipment = 'shield')) {
+        this.char_ac += 12 + 2 + this.getStatModifier(this.char_stats.get("dex")) + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'padded_armor')) {
+        this.char_ac += 12 + this.getStatModifier(this.char_stats.get("dex")) + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'light_armor') && (this.char_equipment = 'shield')) {
+        this.char_ac += 11 + 2 + this.getStatModifier(this.char_stats.get("dex")) + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'light_armor')) {
+        this.char_ac += 11 + this.getStatModifier(this.char_stats.get("dex")) + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'hide_armor') && (this.char_equipment = 'shield')) {
+        this.char_ac += 12 + 2 + this.statModifierMax() + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'hide_armor')) {
+        this.char_ac += 12 + this.statModifierMax() + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'chain_shirt') && (this.char_equipment = 'shield')) {
+        this.char_ac += 13 + 2 + this.statModifierMax() + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'chain_shirt')) {
+        this.char_ac += 13 + this.statModifierMax() + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'half_plate') && (this.char_equipment = 'shield')) {
+        this.char_ac += 15 + 2 + this.statModifierMax() + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'half_plate')) {
+        this.char_ac += 15 + this.statModifierMax() + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if (((this.char_equipment = 'scale_mail') || (this.char_equipment = 'breastplate_armor') || (this.char_equipment = 'ring_mail')) && (this.char_equipment = 'shield')) {
+        this.char_ac += 14 + 2 + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'scale_mail') || (this.char_equipment = 'breastplate_armor') || (this.char_equipment = 'ring_mail')) {
+        this.char_ac += 14 + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'chain_mail') && (this.char_equipment = 'shield')) {
+        this.char_ac += 16 + 2 + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'chain_mail')) {
+        this.char_ac += 16 + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'splint_armor') && (this.char_equipment = 'shield')) {
+        this.char_ac += 17 + 2 + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'splint_armor')) {
+        this.char_ac += 17 + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'plate_armor') && (this.char_equipment = 'shield')) {
+        this.char_ac += 18 + 2 + this.magical_equipment.get("plus");
+        return this.char_ac;
+      } else if ((this.char_equipment = 'plate_armor')) {
+        this.char_ac += 18 + this.magical_equipment.get("plus");
+        return this.char_ac;
+      }
+    }}
+
+  public statModifierMax() {
+    if (this.getStatModifier(this.char_stats.get("dex")) >= 2) {
+      return 2;
     } else {
-      this.char_ac += this.getStatModifier(this.char_stats.get("dex"));
+      return this.getStatModifier(this.char_stats.get("dex"));
     }
   }
 
