@@ -1,0 +1,58 @@
+<!--The character info section-->
+<div id="container">
+  <h2 id="character_name">Name</h2>
+  <div class="dropdown">
+    <select>
+      <option value="default">Choose your Class</option>
+      <option *ngFor="let class of classes" [value]="class">
+        {{ class.name }}
+      </option>
+      <br />
+    </select>
+  </div>
+  <div id="character_level"></div>
+  <div class="dropdown">
+    <select>
+      <option value="default">Choose the Class Level</option>
+      <option *ngFor="let class of level" [value]="class">{{class.values}}</option>
+      <br />
+    </select>
+  </div>
+  <div id="character_background">
+    <div class="dropdown">
+      <select>
+        <option value="default">Choose A Background</option>
+        <option *ngFor="let class of backgrounds" [value]="class">{{class.name}}</option>
+        <br />
+      </select>
+    </div>
+  </div>
+  <div id="character_race">
+    <div class="dropdown">
+      <select>
+        <option value="default">Choose your Race</option>
+        <option *ngFor="let class of race" [value]="class">{{class.name}}</option>
+        <br />
+      </select>
+    </div>
+  </div>
+  <div id="character_alignment">
+    <div class="dropdown">
+      <select>
+        <option value="default">Choose your Alignment</option>
+        <option *ngFor="let class of alignment" [value]="class">{{class.name}}</option>
+        <br />
+      </select>
+    </div>
+  </div>
+  <div id="character_alignment">
+    <div class="dropdown">
+      <select>
+        <option value="default">Choose your Equipment</option>
+        <option *ngFor="let class of equipment" [value]="class">{{class.name}}</option>
+        <br />
+      </select>
+    </div>
+  </div>
+  <div id="character_exp">Experience</div>
+</div>
