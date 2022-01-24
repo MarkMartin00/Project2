@@ -1,6 +1,6 @@
-import { Spell } from "./spell";
-import { SheetService } from "../services/sheet.service";
-import { Features } from "./features";
+import { Spell } from './spell';
+import { SheetService } from '../services/sheet.service';
+import { Features } from './features';
 
 export class PlayerCharacter {
   service: SheetService = new SheetService();
@@ -13,6 +13,9 @@ export class PlayerCharacter {
   char_background: string;
   char_alignment: string;
   char_prof_bonus: number;
+  char_ac: number;
+  char_spd: number;
+  char_init: number;
   // Stats
   char_stats: Map<string, number>;
   // Abilities
@@ -22,12 +25,14 @@ export class PlayerCharacter {
 
   constructor(
     char_name: string,
+    char_race: string,
     char_class: string,
     char_level: number,
     char_background: string,
-    char_race: string,
-    char_alignment: string
-
+    char_alignment: string,
+    char_ac: number,
+    char_spd: number,
+    char_init: number
   ) {
     this.char_name = char_name;
     this.char_class = char_class;
@@ -36,6 +41,7 @@ export class PlayerCharacter {
     this.char_background = char_background;
     this.char_alignment = char_alignment;
     this.char_prof_bonus = this.getProficiencyMod(this.char_level);
+    this.char_ac = 10;
     this.char_stats = new Map([
       ['str', 0],
       ['dex', 0],
@@ -104,46 +110,80 @@ export class PlayerCharacter {
   }
 
   // STAT AUTOMATION
-  public getStatModifier(stat: number) {
-  switch (stat) {
-    case 0 : case 1:
-        return -5;
-    case 2: case 3:
-        return -4;
-    case 4: case 5:
-      return -3;
-    case 6: case 7:
-      return -2;
-    case 8: case 9:
-      return -1;
-    case 10: case 11:
-      return 0;
-    case 12: case 13:
-        return 1;
-    case 14: case 15:
-      return 2;
-    case 16: case 17:
-      return 3;
-    case 18: case 19:
-      return 4;
-    case 20: case 21:
-      return 5;
-    default:
-      return 0;
+  public calcAC() {
+    if ((this.char_class = 'Barbarian')) {
+      this.char_ac += this.getStatModifier(this.char_stats.get("dex")) + this.getStatModifier(this.char_stats.get("con"));
+    } else {
+      this.char_ac += this.getStatModifier(this.char_stats.get("dex"));
+    }
   }
-}
+
+  public getStatModifier(stat: number) {
+    switch (stat) {
+      case 0:
+      case 1:
+        return -5;
+      case 2:
+      case 3:
+        return -4;
+      case 4:
+      case 5:
+        return -3;
+      case 6:
+      case 7:
+        return -2;
+      case 8:
+      case 9:
+        return -1;
+      case 10:
+      case 11:
+        return 0;
+      case 12:
+      case 13:
+        return 1;
+      case 14:
+      case 15:
+        return 2;
+      case 16:
+      case 17:
+        return 3;
+      case 18:
+      case 19:
+        return 4;
+      case 20:
+      case 21:
+        return 5;
+      default:
+        return 0;
+    }
+  }
 
   public getProficiencyMod(level: number) {
     switch (level) {
-      case 1: case 2: case 3: case 4:
+      case 1:
+      case 2:
+      case 3:
+      case 4:
         return 2;
-      case 5: case 6: case 7: case 8:
+      case 5:
+      case 6:
+      case 7:
+      case 8:
         return 3;
-      case 9: case 10: case 11: case 12:
+      case 9:
+      case 10:
+      case 11:
+      case 12:
         return 4;
-      case 13: case 14: case 15: case 16:
+      case 13:
+      case 14:
+      case 15:
+      case 16:
         return 5;
-      case 17: case 18: case 19: case 20:
+      case 17:
+      case 18:
+      case 19:
+      case 20:
         return 6;
       default:
         return 0;
