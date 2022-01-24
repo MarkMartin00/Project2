@@ -8,7 +8,14 @@
       <br>
     </select>
   </div>
-  <div id="character_level">Level</div>
+  <div id="character_level"></div>
+    <div class="dropdown">
+      <select>
+      <option value="default">Choose the Class Level</option>
+      <option *ngFor="let class of level">{{level.values}}</option>
+      <br>
+    </select>
+    </div>
   <div id="character_background">Background</div>
   <div id="character_race">Race</div>
   <div id="character_alignment">Alignment</div>

@@ -1,3 +1,4 @@
+import { LogLevel } from '@angular/compiler-cli/private/localize';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 
@@ -10,7 +11,8 @@ import { DataService } from 'src/app/services/data.service';
 export class CharacterInfoComponent implements OnInit {
   classes: any[] = [];
   spells: any[] = [];
-  features: any [] = [];
+  features: any[] = [];
+  level = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 
   constructor(private dataService: DataService) {}
   ngOnInit(): void {
