@@ -11,7 +11,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class CharacterInfoComponent implements OnInit {
   pc_char: PlayerCharacter;
-  pc_chars: PlayerCharacter[];
+  pc_chars: PlayerCharacter[] = [];
   classes: any[] = [];
   spells: any[] = [];
   features: any[] = [];
