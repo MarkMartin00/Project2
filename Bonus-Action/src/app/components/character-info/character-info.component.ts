@@ -38,7 +38,7 @@ export class CharacterInfoComponent implements OnInit {
   char_align;
 
   public registerCharacter() {
-    let tempCharacter = new PlayerCharacter(this.char_name,this.char_race,this.char_class,['dex', 'str'],this.char_level);
+    let tempCharacter = new PlayerCharacter(this.char_name,this.char_class,this.char_level,this.char_bg,this.char_race,this.char_align);
     this.pc_char = tempCharacter;
     console.log('Character Created!');
   }
