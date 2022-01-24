@@ -1,7 +1,7 @@
 <!--The character info section-->
 <div id="container">
-  <h2 id="character_name">Name</h2>
-  <div class="dropdown">
+  <span><h2 id="character_name">Name</h2></span>
+  <span class="dropdown">
     <select>
       <option value="default">Choose your Class</option>
       <option *ngFor="let class of classes" [value]="class">
@@ -9,8 +9,7 @@
       </option>
       <br />
     </select>
-  </div>
-</div>
+  </span>
 <div id="character_level">
   <div class="dropdown">
     <select>
@@ -63,3 +62,4 @@
   </div>
 </div>
 <div id="character_exp">Experience</div>
+</div>

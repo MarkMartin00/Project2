@@ -29,6 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CharacterStatsComponent,
     CharacterSavesComponent,
     CharacterAbilitiesComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
