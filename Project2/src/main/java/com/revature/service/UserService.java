@@ -30,7 +30,7 @@ public class UserService {
 	@Transactional(readOnly=true)
 	public User getByUsername(String username) {
 		return userRepo.findByUsername(username)
-				.orElseThrow(() -> new UserNotFoundException("No user found with username " + username));
+				.orElseThrow(() -> new UserNotFoundException());
 	}
 	
 	@Transactional(readOnly=true)
