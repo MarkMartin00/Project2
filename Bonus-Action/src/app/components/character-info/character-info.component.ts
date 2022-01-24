@@ -1,6 +1,9 @@
 import { LogLevel } from '@angular/compiler-cli/private/localize';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
+import { PlayerCharacter } from 'src/app/models/player-character';
+import { FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-character-info',
@@ -19,6 +22,23 @@ export class CharacterInfoComponent implements OnInit {
   feats: any[] = [];
   alignment: string[] = ["Lawful-Good", "Neutral-Good","Chaotic-Good","Lawful-Neutral","True-Neutral",
                       "Chaotic-Neutral","Lawful-Evil","Neutral-Evil","Chaotic-Evil",]
+
+  registerCharacter = (char_name, char_class, level, char_background, race, character_alignment) => {
+    char_name = char_name;
+    char_class = char_class;
+    level = level;
+    char_background = char_background;
+    race = race;
+    character_alignment = character_alignment;
+  };
+
+  characterExperience() {
+
+  }
+  onSaveEquipment() {
+
+  }
+
 
   constructor(private dataService: DataService) {}
 
