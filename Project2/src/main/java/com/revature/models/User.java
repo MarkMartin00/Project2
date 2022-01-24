@@ -38,20 +38,20 @@ public class User {
 	@Pattern(regexp="[a-zA-Z][a-zA-Z0-9]*")
 	private String username;
 	
-	@Email
-	private String email;
+//	@Email
+//	private String email;
 	
 	@NotEmpty
 	private String password;
 
 	public User(String firstName, String lastName,
-			@NotBlank @Pattern(regexp = "[a-zA-Z][a-zA-Z0-9]*") String username, @Email String email,
+			@NotBlank @Pattern(regexp = "[a-zA-Z][a-zA-Z0-9]*") String username,
 			@NotEmpty String password) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;
-		this.email = email;
+
 		this.password = password;
 	}
 	
