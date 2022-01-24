@@ -75,7 +75,6 @@ export class Spell {
     this.area_effect_type = area_effect_type;
     this.area_effect_size = area_effect_size;
     this.subclasses = subclasses;
-
   }
 
 

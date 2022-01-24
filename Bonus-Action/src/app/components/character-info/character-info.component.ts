@@ -8,6 +8,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class CharacterInfoComponent implements OnInit {
   classes: any[] = [];
+  level: number[] = [1,2,3];
 
   constructor(private dataService: DataService) {}
   ngOnInit(): void {
@@ -21,6 +22,7 @@ export class CharacterInfoComponent implements OnInit {
     });
 
     console.log(this.classes)
+    console.log(this.level);
     // this.dataService.getPlayerClass('wizard').subscribe((response: any) => {
     //   console.log(response);
     // });
