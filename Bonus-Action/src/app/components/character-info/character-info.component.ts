@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { PlayerCharacter } from 'src/app/models/player-character';
 import { FormGroup } from '@angular/forms';
-
+import { NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-character-info',
@@ -22,15 +22,23 @@ export class CharacterInfoComponent implements OnInit {
   feats: any[] = [];
   alignment: string[] = ["Lawful-Good", "Neutral-Good","Chaotic-Good","Lawful-Neutral","True-Neutral",
                       "Chaotic-Neutral","Lawful-Evil","Neutral-Evil","Chaotic-Evil",]
+  char_name: string;
+  char_class: string;
+  char_level: string;
+  char_background: string;
+  char_race: string;
+  char_alignment: string;
+  char_equipment: string;
 
-  registerCharacter = (char_name, char_class, level, char_background, race, character_alignment) => {
-    char_name = char_name;
-    char_class = char_class;
-    level = level;
-    char_background = char_background;
-    race = race;
-    character_alignment = character_alignment;
-  };
+  registerCharacter = (char_name, char_class, char_level, char_background, char_race, char_alignment) => {
+    this.char_name = char_name;
+    this.char_class = char_class;
+    this.char_level = char_level;
+    this.char_background = char_background;
+    this.char_race = char_race;
+    this.char_alignment = char_alignment;
+    console.log(char_name, char_class, char_level, char_background, char_race, char_alignment);
+  }
 
   characterExperience() {
 
@@ -103,10 +111,10 @@ export class CharacterInfoComponent implements OnInit {
     // console.log(this.classes);
     // console.log(this.features);
     // console.log(this.spells);
-    console.log(this.feats);
-    console.log(this.backgrounds);
-    console.log(this.race);
-    console.log(this.equipment);
+    // console.log(this.feats);
+    // console.log(this.backgrounds);
+    // console.log(this.race);
+    // console.log(this.equipment);
     // this.dataService.getPlayerClass('wizard').subscribe((response: any) => {
     //   console.log(response);
     // });

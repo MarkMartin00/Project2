@@ -9,7 +9,7 @@
     </fieldset>
     <div class="form-group" id="char_name">
       <div class="dropdown">
-        <select [ngModel]="char_name" name="char_name">
+        <select name="char_name">
           <option [ngValue]="null" disabled>Choose your Class</option>
           <option
             *ngFor="let class of classes"
@@ -22,7 +22,7 @@
     </div>
     <div class="form-group" id="character_level">
       <div class="dropdown">
-        <select  [ngModel]="level" (ngModelChange)="registerCharacter($char_name, $char_class, $level, $char_background, $race, $character_alignment)" name="level">
+        <select (ngModelChange)="registerCharacter(char_name, char_class, level, char_background, char_race, char_alignment)" name="level">
           <option [ngValue]="null" disabled>Choose the Class Level</option>
           <option
             *ngFor="let lvl of level"
@@ -36,7 +36,7 @@
     </div>
     <div class="form-group" id="character_background">
       <div class="dropdown">
-        <select  [ngModel]="char_background" (ngModelChange)="registerCharacter($char_background)" name="char_background">
+        <select (ngModelChange)="registerCharacter(char_name, char_class, level, char_background, char_race, char_alignment)" name="char_background">
           <option [ngValue]="null" disabled>Choose A Background</option>
           <option
             *ngFor="let class of backgrounds"
@@ -50,7 +50,7 @@
     </div>
     <div class="form-group" id="character_race">
       <div class="dropdown">
-        <select  [ngModel]="race" (ngModelChange)="registerCharacter($race)" name="race">
+        <select (ngModelChange)="registerCharacter(char_name, char_class, level, char_background, char_race, char_alignment)" name="race">
           <option [ngValue]="null" disabled>Choose your Race</option>
           <option
             *ngFor="let class of race"
@@ -64,24 +64,25 @@
     </div>
     <div class="form-group" id="character_alignment">
       <div class="dropdown">
-        <select  [ngModel]="alignment" (ngModelChange)="registerCharacter($alignment)" name="alignment">
+        <select (ngModelChange)="registerCharacter(char_name, char_class, level, char_background, char_race, char_alignment)" name="alignment">
           <option [ngValue]="null" disabled>Choose your Alignment</option>
           <option
             *ngFor="let align of alignment"
             [value]="align">
             {{ align }}
           </option>
-          <button type="submit">
-            Create Character
-          </button>
           <br />
         </select>
+        <button type="submit">
+          Create Character
+        </button>
       </div>
       <br />
     </div>
   </div>
 </form>
 <br />
+<form>
 <div id="container">
   <div id="character_equipment">
     <div class="dropdown">
@@ -96,6 +97,7 @@
     <br />
   </div>
 </div>
+</form>
 <fieldset style="outline-color: rgb(116, 33, 50);">
   <legend>Experience</legend>
   <form id="characterExperience">
