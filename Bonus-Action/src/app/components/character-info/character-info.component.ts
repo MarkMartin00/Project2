@@ -12,15 +12,16 @@ export class CharacterInfoComponent implements OnInit {
   classes: any[] = [];
   spells: any[] = [];
   features: any[] = [];
-  level: any[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+  level: number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
   backgrounds: any[] = [];
   race: any[] = [];
   equipment: any[] = [];
   feats: any[] = [];
-  alignment: any[] = ["Lawful-Good", "Neutral-Good","Chaotic-Good","Lawful-Neutral","True-Neutral",
+  alignment: string[] = ["Lawful-Good", "Neutral-Good","Chaotic-Good","Lawful-Neutral","True-Neutral",
                       "Chaotic-Neutral","Lawful-Evil","Neutral-Evil","Chaotic-Evil",]
 
   constructor(private dataService: DataService) {}
+
   ngOnInit(): void {
     this.dataService.getClasses().subscribe((response: any) => {
       response.results.forEach(result =>{
@@ -29,6 +30,7 @@ export class CharacterInfoComponent implements OnInit {
           this.classes.push(response);
         })
       })
+    })
       this.dataService.getFeatures().subscribe((response: any) => {
         response.results.forEach(result =>{
           this.dataService.getSubFeatures(result.index)
@@ -77,7 +79,6 @@ export class CharacterInfoComponent implements OnInit {
             })
           })
         })
-    });
 
     // console.log(this.classes);
     // console.log(this.features);
