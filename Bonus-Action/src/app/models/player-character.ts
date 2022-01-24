@@ -105,45 +105,45 @@ export class PlayerCharacter {
 
   // STAT AUTOMATION
   public getStatModifier(stat: number) {
-    switch (stat) {
-      case 0 || 1:
+  switch (stat) {
+    case 0 : case 1:
         return -5;
-      case 2 || 3:
+    case 2: case 3:
         return -4;
-      case 4 || 5:
-        return -3;
-      case 6 || 7:
-        return -2;
-      case 8 || 9:
-        return -1;
-      case 10 || 11:
-        return 0;
-      case 12 || 13:
+    case 4: case 5:
+      return -3;
+    case 6: case 7:
+      return -2;
+    case 8: case 9:
+      return -1;
+    case 10: case 11:
+      return 0;
+    case 12: case 13:
         return 1;
-      case 14 || 15:
-        return 2;
-      case 16 || 17:
-        return 3;
-      case 18 || 19:
-        return 4;
-      case 20 || 21:
-        return 5;
-      default:
-        return 0;
-    }
+    case 14: case 15:
+      return 2;
+    case 16: case 17:
+      return 3;
+    case 18: case 19:
+      return 4;
+    case 20: case 21:
+      return 5;
+    default:
+      return 0;
   }
+}
 
   public getProficiencyMod(level: number) {
     switch (level) {
-      case 1 || 2 || 3 || 4:
+      case 1: case 2: case 3: case 4:
         return 2;
-      case 5 || 6 || 7 || 8:
+      case 5: case 6: case 7: case 8:
         return 3;
-      case 9 || 10 || 11 || 12:
+      case 9: case 10: case 11: case 12:
         return 4;
-      case 13 || 14 || 15 || 16:
+      case 13: case 14: case 15: case 16:
         return 5;
-      case 17 || 18 || 19 || 20:
+      case 17: case 18: case 19: case 20:
         return 6;
       default:
         return 0;
