@@ -29,7 +29,28 @@ export class DataService {
   public getSpellIndex(index: string) {
     return this.http.get(`${url}/spells/${index}`)
   }
-
-
-
+  public getBackground() {
+    return this.http.get(`${url}/backgrounds`)
+  }
+  public getBackgroundIndex(index: string) {
+    return this.http.get(`${url}/backgrounds/${index}`)
+  }
+  public getRace() {
+    return this.http.get(`${url}/races`)
+  }
+  public getRaceIndex(index: string) {
+    return this.http.get(`${url}/races/${index}`)
+  }
+  public getEquipment() {
+    return this.http.get(`${url}/equipment-categories`)
+  }
+  public getEquipmentIndex(index: string) {
+    return this.http.get(`${url}/equipment-categories/${index}`)
+  }
+  public getFeats() {
+    return this.http.get(`${url}/feats`)
+  }
+  public getFeatsIndex(index: string) {
+    return this.http.get(`${url}/feats/${index}`)
+  }
 }
