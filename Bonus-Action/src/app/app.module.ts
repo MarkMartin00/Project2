@@ -2,7 +2,11 @@ import { SheetService } from './services/sheet.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+<<<<<<< HEAD
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+=======
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+>>>>>>> 2982d763816e1fb5c15c1fcfa4e8fc3a5e1cd2e1
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';

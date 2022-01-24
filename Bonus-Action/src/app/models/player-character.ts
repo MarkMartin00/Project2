@@ -9,7 +9,9 @@ export class PlayerCharacter {
   char_race: string;
   char_class: string;
   char_proficiencies: string[];
-  char_lvl: number;
+  char_level: number;
+  char_background: string;
+  char_alignment: string;
   char_prof_bonus: number;
   // Stats
   char_stats: Map<string, number>;
@@ -20,17 +22,20 @@ export class PlayerCharacter {
 
   constructor(
     char_name: string,
-    race: string,
     char_class: string,
-    char_proficiencies: string[],
-    char_lvl: number
+    char_level: number,
+    char_background: string,
+    char_race: string,
+    char_alignment: string
+
   ) {
     this.char_name = char_name;
-    this.char_race = race;
     this.char_class = char_class;
-    this.char_proficiencies = char_proficiencies;
-    this.char_lvl = char_lvl;
-    this.char_prof_bonus = this.getProficiencyMod(this.char_lvl);
+    this.char_level = char_level;
+    this.char_race = char_race;
+    this.char_background = char_background;
+    this.char_alignment = char_alignment;
+    this.char_prof_bonus = this.getProficiencyMod(this.char_level);
     this.char_stats = new Map([
       ['str', 0],
       ['dex', 0],
