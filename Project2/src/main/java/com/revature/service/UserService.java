@@ -20,6 +20,7 @@ public class UserService {
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
+	public
 	UserRepo userRepo;
 	
 	@Transactional(readOnly=true)
