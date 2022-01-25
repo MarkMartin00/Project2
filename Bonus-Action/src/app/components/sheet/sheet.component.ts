@@ -9,7 +9,7 @@ import { PlayerCharacter } from 'src/app/models/player-character';
   styleUrls: ['./sheet.component.css'],
 })
 export class SheetComponent implements OnInit {
-  pc_char = new PlayerCharacter("","","",0,"","",0,0,0,0,0,0,0,0,0);
+  pc_char = new PlayerCharacter("","","",1,"","",10,10,10,10,10,10,10,10,10,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false);
   pc_chars: PlayerCharacter[] = [];
   classes: any[] = [];
   spells: any[] = [];
@@ -64,30 +64,64 @@ export class SheetComponent implements OnInit {
   death_success;
   death_fail;
 
+  // Character Skill Proficiencies
+  //Str Skills
+  char_athl_p;
+  //Dex Skills
+  char_acro_p = false;
+  char_sleight_p;
+  char_stealth_p;
+  //Int Skills
+  char_arcana_p;
+  char_hist_p;
+  char_invest_p;
+  char_nature_p;
+  char_religion_p;
+  //Wis Skills
+  char_animal_p;
+  char_insight_p;
+  char_med_p;
+  char_percep_p;
+  char_surv_p;
+  //Cha Skills
+  char_decep_p;
+  char_intim_p;
+  char_perform_p;
+  char_persua_p;
+
   // Character Skills
-  char_acro;
-  char_animal;
-  char_arcana;
+  //Str Skills
   char_athl;
-  char_decep;
-  char_hist;
-  char_insight;
-  char_intim;
-  char_invest;
-  char_med;
-  char_nature;
-  char_percep;
-  char_perform;
-  char_persua;
-  char_religion;
+  //Dex Skills
+  char_acro = this.pc_char.acrobatics;
   char_sleight;
   char_stealth;
+  //Int Skills
+  char_arcana;
+  char_hist;
+  char_invest;
+  char_nature;
+  char_religion;
+  //Wis Skills
+  char_animal;
+  char_insight;
+  char_med;
+  char_percep;
   char_surv;
+  //Cha Skills
+  char_decep;
+  char_intim;
+  char_perform;
+  char_persua;
+
+
+
+  // Character Skill Proficien
 
   public registerCharacter() {
-    let tempCharacter = new PlayerCharacter(this.char_name,this.char_race,this.char_class,this.char_level,this.char_bg,this.char_align,this.char_str,this.char_dex,this.char_con,this.char_int,this.char_wis,this.char_cha,this.char_ac,this.char_spd,this.char_init);
+    let tempCharacter = new PlayerCharacter(this.char_name,this.char_race,this.char_class,this.char_level,this.char_bg,this.char_align,this.char_str,this.char_dex,this.char_con,this.char_int,this.char_wis,this.char_cha,this.char_ac,this.char_spd,this.char_init,this.char_acro_p,this.char_animal_p,this.char_arcana_p,this.char_athl_p,this.char_decep_p,this.char_hist_p,this.char_insight_p,this.char_intim_p,this.char_invest_p,this.char_med_p,this.char_nature_p,this.char_percep_p,this.char_perform_p,this.char_persua_p,this.char_religion_p,this.char_sleight_p,this.char_stealth_p,this.char_surv_p);
     this.pc_char = tempCharacter;
-    console.log('Character Created!');
+    console.log(this.pc_char);
   }
 
   public saveCharacter() {
@@ -147,6 +181,8 @@ export class SheetComponent implements OnInit {
         return 0;
     }
   }
+
+
   characterExperience() {}
   onSaveEquipment() {}
 

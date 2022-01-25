@@ -59,36 +59,53 @@
 
 <!--The character's HP and death saves-->
 <div id="character-battle-container">
-  <label for="character-ac">AC</label>
-  <input name="character-ac" type="text" [(ngModel)]="char_ac">
-  <button type="button" (click)="pc_char.calcAC()">Calculate AC</button>
 
-  <label for="character-initiative">Initiative</label>
-  <input name="character-initiative" type="text" [(ngModel)]="char_init">
-  <button type="button">Roll Initiative</button>
+  <div class="flex-row" id="battle-container-row">
+    <div id="ac-container">
+      <label for="character-ac">AC</label>
+      <div class="shield">
+        <input name="character-ac" type="number" class="battle-input" [(ngModel)]="char_ac">
+        <!-- <button type="button" (click)="pc_char.calcAC()">Calculate AC</button> -->
+      </div>
+    </div>
 
-  <label for="character-speed">Speed</label>
-  <input type="number" name="character-speed" [(ngModel)]="char_spd">
+    <div id="initiative-container">
+      <label for="character-initiative">Initiative</label>
+      <input name="character-initiative" type="number" id="ac-input" [(ngModel)]="char_init">
+      <!-- <button type="button">Roll Initiative</button> -->
+    </div>
 
+    <div id="speed-container">
+      <label for="character-speed">Speed</label>
+      <input type="number" name="character-speed" [(ngModel)]="char_spd">
+    </div>
+  </div>
 
-  <div id="hp_container">
-    <label for="current-hp">HP</label>
-    <input type="number" id="character_hp_current" [(ngModel)]="char_hp"> /
-    <input type="number" id="character_hp_max" [(ngModel)]="char_hp_max">
-    <input type="number" [(ngModel)]="char_hp_temp">
+  <div class="flex-row">
+    <div id="hp_container">
+      <label for="current-hp">HP</label>
+      <input name="current-hp" type="number" id="character_hp_current" class="stat_num" [(ngModel)]="char_hp"> /
+      <input name="max-hp" type="number" id="character_hp_max" class="stat_num" [(ngModel)]="char_hp_max">
+    </div>
+    <div id="temp_hp_container">
+      <label for="temp-hp">Temp HP</label>
+      <input name="temp-hp" type="number" class="stat_num" [(ngModel)]="char_hp_temp">
+    </div>
+  </div>
 
+  <div class="flex-row">
     <div id="character_hit_dice">
       <div id="total_hit_dice">Hit dice total</div>
       <div id="remaining_hit_dice">Remaining hit dice</div>
       <div id="hit_die_type">Hit die: 1d6</div>
     </div>
-  </div>
 
-  <div id="death_saves">
-    Death Saves
-    <input name="success" type="number" min="0" max="3" [(ngModel)]="death_success">
-    /
-    <input name="failure" type="number" min="0" max="3" [(ngModel)]="death_fail">
+    <div id="death_saves">
+      Death Saves
+      <input name="success" type="number" min="0" max="3" [(ngModel)]="death_success">
+      /
+      <input name="failure" type="number" min="0" max="3" [(ngModel)]="death_fail">
+    </div>
   </div>
 </div>
 <!--/#character-battle-container-->
@@ -108,8 +125,8 @@
       <!-- <input type="number" name="strength_modifier" class="stat_num"> -->
       <label for="strength_proficiency" id="strength_throw">Saving Throw</label>
       <br>
-      <input type="checkbox" id="prof" name="athletics_proficiency">
-      <label for="athletics_proficiency" id="athletics_check">Athletics</label>
+      <input type="checkbox" id="prof" name="athletics_proficiency" [(ngModel)]="char_athl_p">
+      <label for="athletics_proficiency" id="athletics_check"> {{pc_char.athletics}} Athletics</label>
     </div>
   </div>
 
@@ -124,13 +141,13 @@
       <input type="checkbox" id="prof" name="dexterity_proficiency">
       <label for="dexterity_proficiency" id="dexterity_throw">Saving Throw</label>
       <br>
-      <input type="checkbox" id="prof" name="acrobatics_proficiency">
-      <label for="acrobatics_proficiency" id="acrobatics_check">Acrobatics</label>
+      <input type="checkbox" id="prof" name="acrobatics_proficiency" [(ngModel)]="char_acro_p">
+      <label for="acrobatics_proficiency" id="acrobatics_check"> {{pc_char.acrobatics}} Acrobatics</label>
       <br>
-      <input type="checkbox" id="prof" name="sleight_proficiency">
-      <label for="sleight_proficiency" id="sleight_check">Sleight of Hand</label>
+      <input type="checkbox" id="prof" name="sleight_proficiency" [(ngModel)]="char_sleight_p">
+      <label for="sleight_proficiency" id="sleight_check"> {{pc_char.sleight}} Sleight of Hand</label>
       <br>
-      <input type="checkbox" id="prof" name="stealth_proficiency">
+      <input type="checkbox" id="prof" name="stealth_proficiency" [(ngModel)]="char_stealth_p">
       <label for="stealth_proficiency" id="stealth_check">Stealth</label>
     </div>
   </div>
@@ -159,20 +176,20 @@
       <input type="checkbox" id="prof" name="intelligence_proficiency">
       <label for="intelligence_proficiency" id="intelligence_throw">Saving Throw</label>
       <br>
-      <input type="checkbox" id="prof" name="arcana_proficiency">
-      <label for="arcana_proficiency" id="arcana_check">Arcana</label>
+      <input type="checkbox" id="prof" name="arcana_proficiency" [(ngModel)]="char_arcana_p">
+      <label for="arcana_proficiency" id="arcana_check"> {{pc_char.arcana}} Arcana</label>
       <br>
-      <input type="checkbox" id="prof" name="history_proficiency">
-      <label for="history_proficiency" id="history_check">History</label>
+      <input type="checkbox" id="prof" name="history_proficiency" [(ngModel)]="char_hist_p">
+      <label for="history_proficiency" id="history_check"> {{pc_char.history}} History</label>
       <br>
-      <input type="checkbox" id="prof" name="investigation_proficiency">
-      <label for="investigation_proficiency" id="investigation_check">Investigation</label>
+      <input type="checkbox" id="prof" name="investigation_proficiency" [(ngModel)]="char_invest_p">
+      <label for="investigation_proficiency" id="investigation_check"> {{pc_char.investigation}} Investigation</label>
       <br>
-      <input type="checkbox" id="prof" name="nature_proficiency">
-      <label for="nature_proficiency" id="nature_check">Nature</label>
+      <input type="checkbox" id="prof" name="nature_proficiency" [(ngModel)]="char_nature_p">
+      <label for="nature_proficiency" id="nature_check">{{pc_char.nature}} Nature</label>
       <br>
-      <input type="checkbox" id="prof" name="religion_proficiency">
-      <label for="religion_proficiency" id="religion_check">Religion</label>
+      <input type="checkbox" id="prof" name="religion_proficiency" [(ngModel)]="char_religion_p">
+      <label for="religion_proficiency" id="religion_check"> {{pc_char.religion}} Religion</label>
     </div>
   </div>
 
@@ -186,20 +203,20 @@
       <input type="checkbox" id="prof" name="wisdom_proficiency">
       <label for="wisdom_proficiency" id="wisdom_throw">Saving Throw</label>
       <br>
-      <input type="checkbox" id="prof" name="animal_proficiency">
-      <label for="animal_proficiency" id="animal_check">Animal</label>
+      <input type="checkbox" id="prof" name="animal_proficiency" [(ngModel)]="char_animal_p">
+      <label for="animal_proficiency" id="animal_check"> {{pc_char.animal}} Animal Handling</label>
       <br>
-      <input type="checkbox" id="prof" name="insight_proficiency">
-      <label for="insight_proficiency" id="insight_check">Insight</label>
+      <input type="checkbox" id="prof" name="insight_proficiency" [(ngModel)]="char_insight_p">
+      <label for="insight_proficiency" id="insight_check"> {{pc_char.insight}} Insight</label>
       <br>
-      <input type="checkbox" id="prof" name="medicine_proficiency">
-      <label for="medicine_proficiency" id="medicine_check">Medicine</label>
+      <input type="checkbox" id="prof" name="medicine_proficiency" [(ngModel)]="char_med_p">
+      <label for="medicine_proficiency" id="medicine_check"> {{pc_char.medicine}} Medicine</label>
       <br>
-      <input type="checkbox" id="prof" name="perception_proficiency">
-      <label for="perception_proficiency" id="perception_check">Perception</label>
+      <input type="checkbox" id="prof" name="perception_proficiency" [(ngModel)]="char_percep_p">
+      <label for="perception_proficiency" id="perception_check"> {{pc_char.perception}} Perception</label>
       <br>
-      <input type="checkbox" id="prof" name="survival_proficiency">
-      <label for="survival_proficiency" id="survival_check"> Survival</label>
+      <input type="checkbox" id="prof" name="survival_proficiency" [(ngModel)]="char_surv_p">
+      <label for="survival_proficiency" id="survival_check"> {{pc_char.survival}} Survival</label>
     </div>
   </div>
   <div id="cha">
@@ -212,17 +229,17 @@
       <input type="checkbox" id="prof" name="charisma_proficiency">
       <label for="strength_proficiency" id="charisma_throw">Saving Throw</label>
       <br>
-      <input type="checkbox" id="prof" name="deception_proficiency">
-      <label for="deception_proficiency" id="deception_check">Deception</label>
+      <input type="checkbox" id="prof" name="deception_proficiency" [(ngModel)]="char_decep_p">
+      <label for="deception_proficiency" id="deception_check"> {{pc_char.deception}} Deception</label>
       <br>
-      <input type="checkbox" id="prof" name="intimidation_proficiency">
-      <label for="intimidation_proficiency" id="intimidation_check">Intimidation</label>
+      <input type="checkbox" id="prof" name="intimidation_proficiency" [(ngModel)]="char_intim_p">
+      <label for="intimidation_proficiency" id="intimidation_check"> {{pc_char.intimidation}} Intimidation</label>
       <br>
-      <input type="checkbox" id="prof" name="performance_proficiency">
-      <label for="performance_proficiency" id="performance_check">Performance</label>
+      <input type="checkbox" id="prof" name="performance_proficiency" [(ngModel)]="char_perform_p">
+      <label for="performance_proficiency" id="performance_check"> {{pc_char.performance}} Performance</label>
       <br>
-      <input type="checkbox" id="prof" name="persuasion_proficiency">
-      <label for="persuasion_proficiency" id="persuasion_check">Persuasion</label>
+      <input type="checkbox" id="prof" name="persuasion_proficiency" [(ngModel)]="char_persua_p">
+      <label for="persuasion_proficiency" id="persuasion_check"> {{pc_char.persuasion}} Persuasion</label>
     </div>
   </div>
 </div>

@@ -1,3 +1,8 @@
+.flex-row {
+  display:flex;
+  justify-content: center;
+  background-color: cornflowerblue;
+}
 #sheet-container {
   margin: 0 auto;
   padding: 10px;
@@ -121,12 +126,41 @@ input::-webkit-inner-spin-button {
 #character-battle-container {
   margin: 0 auto;
   background-color: burlywood;
-  width: fit-content;
+  border: 1px solid black;
 }
 
 /* Character Saving Throws */
-#saving-throw-container {
+#character-battle-container {
   margin: 0 auto;
   background-color: burlywood;
   width: fit-content;
+  text-align: center;
+}
+
+#battle-container-row {
+height: 100px;
+}
+#ac-container {
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 10px;
+  background-color: cadetblue;
+}
+.shield {
+  font-size: 16pt;
+  height: 70px;
+  width: 70px;
+  border: 2px solid black;
+  border-radius: 50% 50% 50% 50% / 12% 12% 88% 88%;
+}
+
+#ac-input {
+  position: relative;
+  top: 10px;
+  border: 1px dotted gray;
+  background-color: transparent;
+  border-radius: 10px;
+  text-align: center;
+  width: 70%;
 }

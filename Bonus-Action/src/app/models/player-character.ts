@@ -13,6 +13,9 @@ export class PlayerCharacter {
   char_background: string;
   char_alignment: string;
   char_prof_bonus: number;
+  char_ac: number;
+  char_spd: number;
+  char_init: number;
   char_hp: number;
   char_hp_max: number;
   char_hp_temp: number;
@@ -22,15 +25,53 @@ export class PlayerCharacter {
   char_int: number;
   char_wis: number;
   char_cha: number;
-  char_strmod:number;
-  char_dexmod:number;
-  char_conmod:number;
-  char_intmod:number;
-  char_wismod:number;
-  char_chamod:number;
-  char_ac: number;
-  char_spd: number;
-  char_init: number;
+  char_strmod: number;
+  char_dexmod: number;
+  char_conmod: number;
+  char_intmod: number;
+  char_wismod: number;
+  char_chamod: number;
+
+  // Player Skill Stats
+  acrobatics: number;
+  animal: number;
+  arcana: number;
+  athletics: number;
+  deception: number;
+  history: number;
+  insight: number;
+  intimidation: number;
+  investigation: number;
+  medicine: number;
+  nature: number;
+  perception: number;
+  performance: number;
+  persuasion: number;
+  religion: number;
+  sleight: number;
+  stealth: number;
+  survival: number;
+
+  // Player Skill Proficiencies
+  acrobatics_p: boolean;
+  animal_p: boolean;
+  arcana_p: boolean;
+  athletics_p: boolean;
+  deception_p: boolean;
+  history_p: boolean;
+  insight_p: boolean;
+  intimidation_p: boolean;
+  investigation_p: boolean;
+  medicine_p: boolean;
+  nature_p: boolean;
+  perception_p: boolean;
+  performance_p: boolean;
+  persuasion_p: boolean;
+  religion_p: boolean;
+  sleight_p: boolean;
+  stealth_p: boolean;
+  survival_p: boolean;
+
   // Stats
   char_stats: Map<string, number>;
   // Abilities
@@ -57,7 +98,25 @@ export class PlayerCharacter {
     char_cha: number,
     char_ac: number,
     char_spd: number,
-    char_init: number
+    char_init: number,
+    acrobatics_p: boolean,
+    animal_p: boolean,
+    arcana_p: boolean,
+    athletics_p: boolean,
+    deception_p: boolean,
+    history_p: boolean,
+    insight_p: boolean,
+    intimidation_p: boolean,
+    investigation_p: boolean,
+    medicine_p: boolean,
+    nature_p: boolean,
+    perception_p: boolean,
+    performance_p: boolean,
+    persuasion_p: boolean,
+    religion_p: boolean,
+    sleight_p: boolean,
+    stealth_p: boolean,
+    survival_p: boolean
   ) {
     this.char_name = char_name;
     this.char_class = char_class;
@@ -84,29 +143,160 @@ export class PlayerCharacter {
     this.char_intmod = this.getStatModifier(char_int);
     this.char_wismod = this.getStatModifier(char_wis);
     this.char_chamod = this.getStatModifier(char_cha);
-    this.char_skills = new Map([
-      ['acrobatics', 0],
-      ['animal-handling', 0],
-      ['arcana', 0],
-      ['athletics', 0],
-      ['deception', 0],
-      ['history', 0],
-      ['insight', 0],
-      ['intimidation', 0],
-      ['investigation', 0],
-      ['medicine', 0],
-      ['nature', 0],
-      ['perception', 0],
-      ['performance', 0],
-      ['persuasion', 0],
-      ['religion', 0],
-      ['sleight-of-hand', 0],
-      ['stealth', 0],
-      ['survival', 0],
-    ]);
-    this.char_spells = [];
-  }
 
+    this.acrobatics_p = acrobatics_p;
+    this.acrobatics = this.acroSetup();
+    this.animal_p = animal_p;
+    this.animal = this.aniSetup();
+    this.arcana_p = arcana_p;
+    this.arcana = this.arcSetup();
+    this.athletics_p = athletics_p;
+    this.athletics = this.athlSetup();
+    this.deception_p = deception_p;
+    this.deception = this.decepSetup();
+    this.history_p = history_p;
+    this.history = this.histSetup();
+    this.insight_p = insight_p;
+    this.insight = this.insigSetup();
+    this.intimidation_p = intimidation_p;
+    this.intimidation = this.intimSetup();
+    this.investigation_p = investigation_p;
+    this.investigation = this.investSetup();
+    this.medicine_p = medicine_p;
+    this.medicine = this.medSetup();
+    this.nature_p = nature_p;
+    this.nature = this.natSetup();
+    this.perception_p = perception_p;
+    this.perception = this.percSetup();
+    this.performance_p = performance_p;
+    this.performance = this.perfSetup();
+    this.persuasion_p = persuasion_p;
+    this.persuasion = this.persuSetup();
+    this.religion_p = religion_p;
+    this.religion = this.relSetup();
+    this.sleight_p = sleight_p;
+    this.sleight = this.sohSetup();
+    this.stealth_p = stealth_p;
+    this.stealth = this.stlthSetup();
+    this.survival_p = survival_p;
+    this.survival = this.survSetup();
+  }
+  relSetup(): number {
+    if (this.religion_p) {
+      return this.char_intmod + this.char_prof_bonus;
+    } else {
+      return this.char_intmod;
+    }  }
+  sohSetup(): number {
+    if (this.sleight_p) {
+      return this.char_dexmod + this.char_prof_bonus;
+    } else {
+      return this.char_dexmod;
+    }  }
+  survSetup(): number {
+    if (this.survival_p) {
+      return this.char_wismod + this.char_prof_bonus;
+    } else {
+      return this.char_wismod;
+    }
+  }
+  stlthSetup(): number {
+    if (this.stealth_p) {
+      return this.char_dexmod + this.char_prof_bonus;
+    } else {
+      return this.char_dexmod;
+    }  }
+  persuSetup(): number {
+    if (this.persuasion_p) {
+      return this.char_chamod + this.char_prof_bonus;
+    } else {
+      return this.char_chamod;
+    }  }
+  perfSetup(): number {
+    if (this.performance_p) {
+      return this.char_chamod + this.char_prof_bonus;
+    } else {
+      return this.char_chamod;
+    }  }
+  percSetup(): number {
+    if (this.perception_p) {
+      return this.char_wismod + this.char_prof_bonus;
+    } else {
+      return this.char_wismod;
+    }  }
+  natSetup(): number {
+    if (this.nature_p) {
+      return this.char_intmod + this.char_prof_bonus;
+    } else {
+      return this.char_intmod;
+    }
+  }
+  medSetup(): number {
+    if (this.medicine_p) {
+      return this.char_wismod + this.char_prof_bonus;
+    } else {
+      return this.char_wismod;
+    }  }
+  investSetup(): number {
+    if (this.investigation_p) {
+      return this.char_intmod + this.char_prof_bonus;
+    } else {
+      return this.char_intmod;
+    }
+  }
+  intimSetup(): number {
+    if (this.intimidation_p) {
+      return this.char_chamod + this.char_prof_bonus;
+    } else {
+      return this.char_chamod;
+    }  }
+  insigSetup(): number {
+    if (this.insight_p) {
+      return this.char_wismod + this.char_prof_bonus;
+    } else {
+      return this.char_wismod;
+    }  }
+  histSetup(): number {
+    if (this.history_p) {
+      return this.char_intmod + this.char_prof_bonus;
+    } else {
+      return this.char_intmod;
+    }  }
+  decepSetup(): number {
+    if (this.deception_p) {
+      return this.char_chamod + this.char_prof_bonus;
+    } else {
+      return this.char_chamod;
+    }
+  }
+  athlSetup(): number {
+    if (this.athletics_p) {
+      return this.char_strmod + this.char_prof_bonus;
+    } else {
+      return this.char_strmod;
+    }
+  }
+  arcSetup(): number {
+    if (this.arcana_p) {
+      return this.char_intmod + this.char_prof_bonus;
+    } else {
+      return this.char_intmod;
+    }
+  }
+  aniSetup(): number {
+    if (this.animal_p) {
+      return this.char_wismod + this.char_prof_bonus;
+    } else {
+      return this.char_wismod;
+    }
+  }
+  public acroSetup() {
+    if (this.acrobatics_p) {
+      return this.char_dexmod + this.char_prof_bonus;
+    } else {
+      return this.char_dexmod;
+    }
+  }
   // SAVING THROWS
   public savingThrow(stat: string) {
     let total = this.service.d20();
@@ -144,172 +334,173 @@ export class PlayerCharacter {
   }
 
   // STAT AUTOMATION
-  public calcAC() {
-    if ((this.char_class = 'Barbarian')) {
-      if (
-        (this.feature_name = 'Unarmored_Defense') &&
-        (this.equipment_name = 'shield')
-      ) {
-        this.char_ac +=
-          10 +
-          2 +
-          this.getStatModifier(this.char_stats.get('dex')) +
-          this.getStatModifier(this.char_stats.get('con'));
-        return this.char_ac;
-      } else if ((this.feature_name = 'Unarmored_Defense')) {
-        this.char_ac +=
-          10 +
-          this.getStatModifier(this.char_stats.get('dex')) +
-          this.getStatModifier(this.char_stats.get('con'));
-        return this.char_ac;
-      }
-    } else if ((this.char_class = 'Monk')) {
-      if (
-        (this.feature_name = 'Unarmored_Defense') &&
-        (this.equipment_name = 'shield')
-      ) {
-        this.char_ac +=
-          10 +
-          2 +
-          this.getStatModifier(this.char_stats.get('dex')) +
-          this.getStatModifier(this.char_stats.get('wis'));
-        return this.char_ac;
-      } else if ((this.feature_name = 'Unarmored_Defense')) {
-        this.char_ac +=
-          10 +
-          this.getStatModifier(this.char_stats.get('dex')) +
-          this.getStatModifier(this.char_stats.get('wis'));
-        return this.char_ac;
-      }
-    } else if ((this.char_class = '')) {
-      if (
-        (this.equipment_name = 'padded_armor') &&
-        (this.equipment_name = 'shield')
-      ) {
-        this.char_ac +=
-          12 +
-          2 +
-          this.getStatModifier(this.char_stats.get('dex')) +
-          this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if ((this.equipment_name = 'padded_armor')) {
-        this.char_ac +=
-          12 +
-          this.getStatModifier(this.char_stats.get('dex')) +
-          this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if (
-        (this.equipment_name = 'studded_armor') &&
-        (this.equipment_name = 'shield')
-      ) {
-        this.char_ac +=
-          12 +
-          2 +
-          this.getStatModifier(this.char_stats.get('dex')) +
-          this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if ((this.equipment_name = 'studded_armor')) {
-        this.char_ac +=
-          12 +
-          this.getStatModifier(this.char_stats.get('dex')) +
-          this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if (
-        (this.equipment_name = 'light_armor') &&
-        (this.equipment_name = 'shield')
-      ) {
-        this.char_ac +=
-          11 +
-          2 +
-          this.getStatModifier(this.char_stats.get('dex')) +
-          this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if ((this.equipment_name = 'light_armor')) {
-        this.char_ac +=
-          11 +
-          this.getStatModifier(this.char_stats.get('dex')) +
-          this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if (
-        (this.equipment_name = 'hide_armor') &&
-        (this.equipment_name = 'shield')
-      ) {
-        this.char_ac +=
-          12 + 2 + this.statModifierMax() + this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if ((this.equipment_name = 'hide_armor')) {
-        this.char_ac +=
-          12 + this.statModifierMax() + this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if (
-        (this.equipment_name = 'chain_shirt') &&
-        (this.equipment_name = 'shield')
-      ) {
-        this.char_ac +=
-          13 + 2 + this.statModifierMax() + this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if ((this.equipment_name = 'chain_shirt')) {
-        this.char_ac +=
-          13 + this.statModifierMax() + this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if (
-        (this.equipment_name = 'half_plate') &&
-        (this.equipment_name = 'shield')
-      ) {
-        this.char_ac +=
-          15 + 2 + this.statModifierMax() + this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if ((this.equipment_name = 'half_plate')) {
-        this.char_ac +=
-          15 + this.statModifierMax() + this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if (
-        ((this.equipment_name = 'scale_mail') ||
-          (this.equipment_name = 'breastplate_armor') ||
-          (this.equipment_name = 'ring_mail')) &&
-        (this.equipment_name = 'shield')
-      ) {
-        this.char_ac += 14 + 2 + this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if (
-        (this.equipment_name = 'scale_mail') ||
-        (this.equipment_name = 'breastplate_armor') ||
-        (this.equipment_name = 'ring_mail')
-      ) {
-        this.char_ac += 14 + this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if (
-        (this.equipment_name = 'chain_mail') &&
-        (this.equipment_name = 'shield')
-      ) {
-        this.char_ac += 16 + 2 + this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if ((this.equipment_name = 'chain_mail')) {
-        this.char_ac += 16 + this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if (
-        (this.equipment_name = 'splint_armor') &&
-        (this.equipment_name = 'shield')
-      ) {
-        this.char_ac += 17 + 2 + this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if ((this.equipment_name = 'splint_armor')) {
-        this.char_ac += 17 + this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if (
-        (this.equipment_name = 'plate_armor') &&
-        (this.equipment_name = 'shield')
-      ) {
-        this.char_ac += 18 + 2 + this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else if ((this.equipment_name = 'plate_armor')) {
-        this.char_ac += 18 + this.magical_equipment.get('plus');
-        return this.char_ac;
-      } else {
-        this.char_ac += 10 + this.getStatModifier(this.char_stats.get('dex'));
-      }
-    }
-  }
+
+  // public calcAC() {
+  //   if ((this.char_class = 'Barbarian')) {
+  //     if (
+  //       (this.feature_name = 'Unarmored_Defense') &&
+  //       (this.equipment_name = 'shield')
+  //     ) {
+  //       this.char_ac +=
+  //         10 +
+  //         2 +
+  //         this.getStatModifier(this.char_stats.get('dex')) +
+  //         this.getStatModifier(this.char_stats.get('con'));
+  //       return this.char_ac;
+  //     } else if ((this.feature_name = 'Unarmored_Defense')) {
+  //       this.char_ac +=
+  //         10 +
+  //         this.getStatModifier(this.char_stats.get('dex')) +
+  //         this.getStatModifier(this.char_stats.get('con'));
+  //       return this.char_ac;
+  //     }
+  //   } else if ((this.char_class = 'Monk')) {
+  //     if (
+  //       (this.feature_name = 'Unarmored_Defense') &&
+  //       (this.equipment_name = 'shield')
+  //     ) {
+  //       this.char_ac +=
+  //         10 +
+  //         2 +
+  //         this.getStatModifier(this.char_stats.get('dex')) +
+  //         this.getStatModifier(this.char_stats.get('wis'));
+  //       return this.char_ac;
+  //     } else if ((this.feature_name = 'Unarmored_Defense')) {
+  //       this.char_ac +=
+  //         10 +
+  //         this.getStatModifier(this.char_stats.get('dex')) +
+  //         this.getStatModifier(this.char_stats.get('wis'));
+  //       return this.char_ac;
+  //     }
+  //   } else if ((this.char_class = '')) {
+  //     if (
+  //       (this.equipment_name = 'padded_armor') &&
+  //       (this.equipment_name = 'shield')
+  //     ) {
+  //       this.char_ac +=
+  //         12 +
+  //         2 +
+  //         this.getStatModifier(this.char_stats.get('dex')) +
+  //         this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if ((this.equipment_name = 'padded_armor')) {
+  //       this.char_ac +=
+  //         12 +
+  //         this.getStatModifier(this.char_stats.get('dex')) +
+  //         this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if (
+  //       (this.equipment_name = 'studded_armor') &&
+  //       (this.equipment_name = 'shield')
+  //     ) {
+  //       this.char_ac +=
+  //         12 +
+  //         2 +
+  //         this.getStatModifier(this.char_stats.get('dex')) +
+  //         this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if ((this.equipment_name = 'studded_armor')) {
+  //       this.char_ac +=
+  //         12 +
+  //         this.getStatModifier(this.char_stats.get('dex')) +
+  //         this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if (
+  //       (this.equipment_name = 'light_armor') &&
+  //       (this.equipment_name = 'shield')
+  //     ) {
+  //       this.char_ac +=
+  //         11 +
+  //         2 +
+  //         this.getStatModifier(this.char_stats.get('dex')) +
+  //         this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if ((this.equipment_name = 'light_armor')) {
+  //       this.char_ac +=
+  //         11 +
+  //         this.getStatModifier(this.char_stats.get('dex')) +
+  //         this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if (
+  //       (this.equipment_name = 'hide_armor') &&
+  //       (this.equipment_name = 'shield')
+  //     ) {
+  //       this.char_ac +=
+  //         12 + 2 + this.statModifierMax() + this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if ((this.equipment_name = 'hide_armor')) {
+  //       this.char_ac +=
+  //         12 + this.statModifierMax() + this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if (
+  //       (this.equipment_name = 'chain_shirt') &&
+  //       (this.equipment_name = 'shield')
+  //     ) {
+  //       this.char_ac +=
+  //         13 + 2 + this.statModifierMax() + this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if ((this.equipment_name = 'chain_shirt')) {
+  //       this.char_ac +=
+  //         13 + this.statModifierMax() + this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if (
+  //       (this.equipment_name = 'half_plate') &&
+  //       (this.equipment_name = 'shield')
+  //     ) {
+  //       this.char_ac +=
+  //         15 + 2 + this.statModifierMax() + this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if ((this.equipment_name = 'half_plate')) {
+  //       this.char_ac +=
+  //         15 + this.statModifierMax() + this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if (
+  //       ((this.equipment_name = 'scale_mail') ||
+  //         (this.equipment_name = 'breastplate_armor') ||
+  //         (this.equipment_name = 'ring_mail')) &&
+  //       (this.equipment_name = 'shield')
+  //     ) {
+  //       this.char_ac += 14 + 2 + this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if (
+  //       (this.equipment_name = 'scale_mail') ||
+  //       (this.equipment_name = 'breastplate_armor') ||
+  //       (this.equipment_name = 'ring_mail')
+  //     ) {
+  //       this.char_ac += 14 + this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if (
+  //       (this.equipment_name = 'chain_mail') &&
+  //       (this.equipment_name = 'shield')
+  //     ) {
+  //       this.char_ac += 16 + 2 + this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if ((this.equipment_name = 'chain_mail')) {
+  //       this.char_ac += 16 + this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if (
+  //       (this.equipment_name = 'splint_armor') &&
+  //       (this.equipment_name = 'shield')
+  //     ) {
+  //       this.char_ac += 17 + 2 + this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if ((this.equipment_name = 'splint_armor')) {
+  //       this.char_ac += 17 + this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if (
+  //       (this.equipment_name = 'plate_armor') &&
+  //       (this.equipment_name = 'shield')
+  //     ) {
+  //       this.char_ac += 18 + 2 + this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else if ((this.equipment_name = 'plate_armor')) {
+  //       this.char_ac += 18 + this.magical_equipment.get('plus');
+  //       return this.char_ac;
+  //     } else {
+  //       this.char_ac += 10 + this.getStatModifier(this.char_stats.get('dex'));
+  //     }
+  //   }
+  // }
 
   public statModifierMax() {
     if (this.getStatModifier(this.char_stats.get('dex')) >= 2) {
@@ -416,19 +607,19 @@ export class PlayerCharacter {
     return d20;
   }
 
-  public meleeAttackRoll(martial:boolean, simple:boolean) {
-    if ((this.equipment_proficiencies.includes(martial=true)) || (this.equipment_proficiencies.includes(simple=true))) {
-      let attack = d20() + this.getProficiencyMod() + this.getStatModifier();
-      alert(
-        'Your attack roll is a ${d20} with an added proficiency bonus of ${this.getProficiencyMod() and your ability modifier of ${this.getStatModifier()} which totals ${attack}'
-      );
-    } else {
-      let attack = d20() + this.getStatModifier();
-      alert(
-        'Your attack roll is a ${d20} with  your ability modifier of ${this.getStatModifier()} since you are not proficient with this weapon. This totals ${attack}'
-      );
-    }
-  }
+  // public meleeAttackRoll(martial:boolean, simple:boolean) {
+  //   if ((this.equipment_proficiencies.includes(martial=true)) || (this.equipment_proficiencies.includes(simple=true))) {
+  //     let attack = d20() + this.getProficiencyMod() + this.getStatModifier();
+  //     alert(
+  //       'Your attack roll is a ${d20} with an added proficiency bonus of ${this.getProficiencyMod() and your ability modifier of ${this.getStatModifier()} which totals ${attack}'
+  //     );
+  //   } else {
+  //     let attack = d20() + this.getStatModifier();
+  //     alert(
+  //       'Your attack roll is a ${d20} with  your ability modifier of ${this.getStatModifier()} since you are not proficient with this weapon. This totals ${attack}'
+  //     );
+  //   }
+  // }
 
   public meleeAttack() {
     let damage: number;
@@ -671,5 +862,3 @@ export class PlayerCharacter {
     } else return '';
   }
 }
-
-
