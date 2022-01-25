@@ -78,7 +78,7 @@ function roll_for_stats() {
     var values = [];
     for (var i = 0; i < 6; i++) {
         var roll = [d6(), d6(), d6(), d6()];
-        roll.sort();
+        roll.sort((a,b) => (a - b));
         roll.splice(0, 1);
         values.push(roll.reduce(function (partial_sum, a) { return partial_sum + a; }, 0));
     }
