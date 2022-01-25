@@ -16,7 +16,7 @@
     <h2>from the background of the {{char_bg}}s, aligns morally with {{char_align}}</h2> -->
 
     <div class="stat-component">
-      <label for="character-class">Character Class</label>
+      <label for="character-class">Class</label>
       <!-- Select creates a dropdown list in HTML.
     It needs a label (For accessability) that connects to that input/select tag of the same name="" attribute -> -->
       <select name="character-class" [(ngModel)]="char_class">
@@ -25,27 +25,27 @@
       </select>
     </div>
 
-    <div class="stat-component">
-      <label for="character-level">Character Level</label>
+    <div class="stat-component" id>
+      <label for="character-level">Level</label><br>
       <input name="character-level" type="number" min="1" max="20" [(ngModel)]="char_level">
     </div>
 
     <div class="stat-component">
-      <label for="character-background">Character Background</label>
+      <label for="character-background">Background</label><br>
       <select name="character-background" [(ngModel)]="char_bg">
         <option value="">Select a Background</option>
         <option *ngFor="let bg of backgrounds">{{bg.name}}</option>
       </select>
     </div>
     <div class="stat-component">
-      <label for="character-race">Character Race</label>
+      <label for="character-race">Race</label><br>
       <select name="character-race" [(ngModel)]="char_race">
         <option value="">Select a Race</option>
         <option *ngFor="let r of race">{{r.name}}</option>
       </select>
     </div>
     <div class="stat-component">
-      <label for="character-alignment">Character Alignment</label>
+      <label for="character-alignment">Alignment</label><br>
       <select name="character-alignment" [(ngModel)]="char_align">
         <option value="">Select an Alignment</option>
         <option *ngFor="let align of alignment">{{align}}</option>
@@ -64,7 +64,7 @@
     <div id="ac-container">
       <label for="character-ac">AC</label>
       <div class="shield">
-        <input name="character-ac" type="number" class="battle-input" [(ngModel)]="char_ac">
+        <input name="character-ac" type="number" id="ac-input" [(ngModel)]="char_ac">
         <!-- <button type="button" (click)="pc_char.calcAC()">Calculate AC</button> -->
       </div>
     </div>
@@ -77,15 +77,15 @@
 
     <div id="speed-container">
       <label for="character-speed">Speed</label>
-      <input type="number" name="character-speed" [(ngModel)]="char_spd">
+      <input type="number" name="character-speed" id="speed-input" [(ngModel)]="char_spd">
     </div>
   </div>
 
   <div class="flex-row">
     <div id="hp_container">
       <label for="current-hp">HP</label>
-      <input name="current-hp" type="number" id="character_hp_current" class="stat_num" [(ngModel)]="char_hp"> /
-      <input name="max-hp" type="number" id="character_hp_max" class="stat_num" [(ngModel)]="char_hp_max">
+      <input name="current-hp" type="number" id="character_hp_current" class="hp_num" [(ngModel)]="char_hp"> /
+      <input name="max-hp" type="number" min="1" id="character_hp_max" class="hp_num" [(ngModel)]="char_hp_max">
     </div>
     <div id="temp_hp_container">
       <label for="temp-hp">Temp HP</label>
@@ -245,10 +245,8 @@
 </div>
 
 <!--/#character-skill-container-->
-<div id="character-equipment-container">
-  <ul id="character-equipment-list" *ngFor="let e of equipment">
-    <li>{{e.name}}</li>
-  </ul>
+<div id="character-attack-container">
+  <ul></ul>
 </div>
 
 <!--/#container-->
