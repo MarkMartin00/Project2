@@ -1,9 +1,11 @@
 import { Spell } from './spell';
 import { SheetService } from '../services/sheet.service';
 import { Features } from './features';
+import { DataService } from '../services/data.service';
 
 export class PlayerCharacter {
   service: SheetService = new SheetService();
+  private dservice: DataService;
 
   char_name: string;
   char_race: string;
@@ -131,7 +133,7 @@ export class PlayerCharacter {
     this.char_wis = char_wis;
     this.char_cha = char_cha;
     this.char_ac = char_ac;
-    this.char_spd = char_spd;
+    this.char_spd = 30;
     this.char_init = char_init;
 
     this.char_prof_bonus = this.getProficiencyMod(this.char_level);
@@ -584,10 +586,12 @@ export class PlayerCharacter {
   }
   public d4() {
     var d4 = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+    console.log(`You rolled a ${d4}`)
     return d4;
   }
   public d6() {
     var d6 = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+    console.log(`You rolled a ${d6}`)
     return d6;
   }
   public d8() {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { PlayerCharacter } from 'src/app/models/player-character';
-
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-sheet',
@@ -56,7 +56,7 @@ export class SheetComponent implements OnInit {
   char_hp;
   char_hp_max;
   char_hp_temp;
-  char_spd;
+  char_spd = 30;
   char_ac = 10;
   char_init;
 
@@ -68,7 +68,7 @@ export class SheetComponent implements OnInit {
   //Str Skills
   char_athl_p;
   //Dex Skills
-  char_acro_p = false;
+  char_acro_p;
   char_sleight_p;
   char_stealth_p;
   //Int Skills
@@ -130,16 +130,77 @@ export class SheetComponent implements OnInit {
   }
 
   public loadCharacter(index: number){
-    let temp_char = this.pc_chars[index];
-    this.pc_char = temp_char;
+    let x = this.pc_chars[index];
+
+    this.char_name = x.char_name;
+    this.char_class = x.char_class;
+    this.char_race = x.char_race;
+    this.char_level = x.char_level;
+    this.char_bg = x. char_background;
+    this.char_align = x.char_alignment;
+    this.char_hp = x.char_hp;
+    this.char_ac = x.char_ac;
+    this.char_spd = x.char_spd;
+
+    this.char_str = x.char_str;
+    this.char_strmod = x.char_strmod;
+    this.char_dex = x.char_dex;
+    this.char_dexmod = x.char_dexmod;
+    this.char_con = x.char_con;
+    this.char_conmod = x.char_conmod;
+    this.char_int = x.char_int;
+    this.char_intmod = x.char_intmod;
+    this.char_wis = x.char_wis;
+    this.char_wismod = x.char_wismod;
+    this.char_cha = x.char_cha;
+    this.char_chamod = x.char_chamod;
+
+
+
+    this.char_athl_p = x.athletics_p
+    this.char_acro_p = x.acrobatics_p
+    this.char_sleight_p = x.sleight_p
+    this.char_stealth_p = x.stealth_p
+    this.char_arcana_p = x.arcana_p
+    this.char_hist_p = x.history_p
+    this.char_invest_p = x.investigation_p
+    this.char_nature_p = x.nature_p
+    this.char_religion_p = x.religion_p
+    this.char_animal_p = x.animal_p
+    this.char_insight_p = x.insight_p
+    this.char_med_p = x. medicine_p
+    this.char_percep_p = x.perception_p
+    this.char_surv_p = x.survival_p
+    this.char_decep_p = x. deception_p
+    this.char_intim_p = x. intimidation_p
+    this.char_perform_p = x. performance_p
+    this.char_persua_p = x.persuasion_p
+
+    this.char_athl = x.athletics
+    this.char_acro = x.acrobatics
+    this.char_sleight = x.sleight
+    this.char_stealth = x.stealth
+    this.char_arcana = x.arcana
+    this.char_hist = x.history
+    this.char_invest = x.investigation
+    this.char_nature = x.nature
+    this.char_religion = x.religion
+    this.char_animal = x.animal
+    this.char_insight = x.insight
+    this.char_med = x. medicine
+    this.char_percep = x.perception
+    this.char_surv = x.survival
+    this.char_decep = x. deception
+    this.char_intim = x. intimidation
+    this.char_perform = x. performance
+    this.char_persua = x.persuasion
+
+    this.char_str = x.char_str;
+    console.log(`${x.char_name} loaded!`)
   }
 
   public printCharacter() {
     console.log(this.pc_char);
-  }
-
-  public printName() {
-    console.log(this.char_name);
   }
 
   public getStatModifier(stat: number) {
