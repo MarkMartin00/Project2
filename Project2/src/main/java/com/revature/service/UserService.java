@@ -20,6 +20,7 @@ public class UserService {
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
+	public
 	UserRepo userRepo;
 	
 	@Transactional(readOnly=true)
@@ -30,7 +31,7 @@ public class UserService {
 	@Transactional(readOnly=true)
 	public User getByUsername(String username) {
 		return userRepo.findByUsername(username)
-				.orElseThrow(() -> new UserNotFoundException("No user found with username " + username));
+				.orElseThrow(() -> new UserNotFoundException());
 	}
 	
 	@Transactional(readOnly=true)

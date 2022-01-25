@@ -22,6 +22,7 @@ import com.revature.service.UserService;
 public class UserController {
 	
 	@Autowired
+	public
 	UserService userServ;
 	
 	@GetMapping
