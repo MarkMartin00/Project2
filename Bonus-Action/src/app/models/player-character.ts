@@ -13,6 +13,21 @@ export class PlayerCharacter {
   char_background: string;
   char_alignment: string;
   char_prof_bonus: number;
+  char_hp: number;
+  char_hp_max: number;
+  char_hp_temp: number;
+  char_str: number;
+  char_dex: number;
+  char_con: number;
+  char_int: number;
+  char_wis: number;
+  char_cha: number;
+  char_strmod:number;
+  char_dexmod:number;
+  char_conmod:number;
+  char_intmod:number;
+  char_wismod:number;
+  char_chamod:number;
   char_ac: number;
   char_spd: number;
   char_init: number;
@@ -30,6 +45,12 @@ export class PlayerCharacter {
     char_level: number,
     char_background: string,
     char_alignment: string,
+    char_str: number,
+    char_dex: number,
+    char_con: number,
+    char_int: number,
+    char_wis: number,
+    char_cha: number,
     char_ac: number,
     char_spd: number,
     char_init: number
@@ -40,16 +61,25 @@ export class PlayerCharacter {
     this.char_race = char_race;
     this.char_background = char_background;
     this.char_alignment = char_alignment;
+    this.char_str = char_str;
+    this.char_dex = char_dex;
+    this.char_con = char_con;
+    this.char_int = char_int;
+    this.char_wis = char_wis;
+    this.char_cha = char_cha;
+    this.char_ac = char_ac;
+    this.char_spd = char_spd;
+    this.char_init = char_init;
+
     this.char_prof_bonus = this.getProficiencyMod(this.char_level);
     this.char_ac = 10;
-    this.char_stats = new Map([
-      ['str', 0],
-      ['dex', 0],
-      ['con', 0],
-      ['int', 0],
-      ['wis', 0],
-      ['cha', 0],
-    ]);
+
+    this.char_strmod = this.getStatModifier(char_str);
+    this.char_dexmod = this.getStatModifier(char_dex);
+    this.char_conmod = this.getStatModifier(char_con);
+    this.char_intmod = this.getStatModifier(char_int);
+    this.char_wismod = this.getStatModifier(char_wis);
+    this.char_chamod = this.getStatModifier(char_cha);
     this.char_skills = new Map([
       ['acrobatics', 0],
       ['animal-handling', 0],
@@ -160,6 +190,7 @@ export class PlayerCharacter {
 
   public getProficiencyMod(level: number) {
     switch (level) {
+      case 0:
       case 1:
       case 2:
       case 3:

@@ -1,207 +1,237 @@
-<!-- The character info section -->
 <div id="sheet-container">
-  <div id="character-info-container">
-    <h2>{{char_name}} the {{char_race}} of level {{char_level}}. This {{char_class}}</h2>
-    <h2>from the background of the {{char_bg}}s, aligns morally with {{char_align}}</h2>
-
-    <label for="character-name">Character Name</label>
-    <input name="character-name" type="text" placeholder="Character Name" [(ngModel)]="char_name" />
-
-    <label for="character-class">Character Class</label>
-    <!-- Select creates a dropdown list in HTML.
-    It needs a label (For accessability) that connects to that input/select tag of the same name="" attribute -> -->
-    <select name="character-class" [(ngModel)]="char_class">
-      <option *ngFor="let class of classes">{{class.name}}</option>
-    </select>
-
-    <label for="character-level">Character Level</label>
-    <input name="character-level" type="number" min="1" max="20" [(ngModel)]="char_level">
-
-    <label for="character-background">Character Background</label>
-    <select name="character-background" [(ngModel)]="char_bg">
-      <option *ngFor="let bg of backgrounds">{{bg.name}}</option>
-      <option>Custom Background</option>
-    </select>
-
-    <label for="character-race">Character Race</label>
-    <select name="character-race" [(ngModel)]="char_race">
-      <option *ngFor="let r of race">{{r.name}}</option>
-    </select>
-
-    <label for="character-alignment">Character Alignment</label>
-    <select name="character-alignment" [(ngModel)]="char_align">
-      <option *ngFor="let align of alignment">{{align}}</option>
-    </select>
-
+  <div id="character-name-container">
+    <input id="name-field" type="text" placeholder="Character Name" [(ngModel)]="char_name" />
     <div id="button-container">
-      <button type="button" (click)="registerCharacter()">Create Character</button>
-      <button type="button" (click)="printCharacter()">Print My Character</button>
-      <button type="button" (click)="saveCharacter()">Save Character</button>
-    </div>
-    <!--/#button-container-->
-  </div>
-  <!--/#character-info-container-->
-
-  <!--The character's HP and death saves-->
-  <div id="character-battle-container">
-    <label for="character-ac">AC</label>
-    <input name="character-ac" type="text" [(ngModel)]="char_ac">
-    <p>{{char_ac}}</p>
-    <button type="button" (click)="pc_char.calcAC()">Calculate AC</button>
-
-    <label for="character-initiative">Initiative</label>
-    <input name="character-initiative" type="text" [(ngModel)]="char_init">
-
-    <label for="character-speed">Speed</label>
-    <input name="character-speed" type="text" [(ngModel)]="char_spd">
-
-    <div id="hp_container">
-      <span id="character_hp_current">current HP</span> /
-      <span id="character_hp_max">HP max</span>
-      <div id="character_hp_temp">Temp HP</div>
-
-      <div id="character_hit_dice">
-        <div id="total_hit_dice">Hit dice total</div>
-        <div id="remaining_hit_dice">Remaining hit dice</div>
-        <div id="hit_die_type">Hit die: 1d6</div>
-      </div>
-    </div>
-
-    <div id="death_saves">
-      <div id="death_save_success">Successes ***</div>
-      <div id="death_save_failure">Failures ***</div>
+      <button class="data-button" type="button" (click)="registerCharacter()">Save Changes</button>
+      <button class="data-button" type="button" (click)="saveCharacter()">Save Character</button>
+      <button class="data-button" type="button" (click)="printCharacter()">Load Character</button>
     </div>
   </div>
-  <!--/#character-battle-container-->
 
+  <!--/#button-container-->
+  <!-- The character info section -->
 
-  <!-- Character saving throws-->
-  <div id="saving-throw-container">
-    <label for="strength_proficiency" id="strength_throw">Strength</label>
-    <input type="checkbox" id="prof" name="strength_proficiency">
+  <div id="character-info-container">
+    <!-- <h2>{{char_name}} the {{char_race}} of level {{char_level}}. This {{char_class}}</h2>
+    <h2>from the background of the {{char_bg}}s, aligns morally with {{char_align}}</h2> -->
 
-    <label for="dexterity_proficiency" id="dexterity_throw">Dexterity</label>
-    <input type="checkbox" id="prof" name="dexterity_proficiency">
+    <div class="stat-component">
+      <label for="character-class">Character Class</label>
+      <!-- Select creates a dropdown list in HTML.
+    It needs a label (For accessability) that connects to that input/select tag of the same name="" attribute -> -->
+      <select name="character-class" [(ngModel)]="char_class">
+        <option value="">Select a Class</option>
+        <option *ngFor="let class of classes">{{class.name}}</option>
+      </select>
+    </div>
 
-    <label for="constitution_proficiency" id="constitution_throw">Constitution</label>
-    <input type="checkbox" id="prof" name="constitution_proficiency">
+    <div class="stat-component">
+      <label for="character-level">Character Level</label>
+      <input name="character-level" type="number" min="1" max="20" [(ngModel)]="char_level">
+    </div>
 
-    <label for="intelligence_proficiency" id="intelligence_throw">Intelligence</label>
-    <input type="checkbox" id="prof" name="intelligence_proficiency">
-
-    <label for="wisdom_proficiency" id="wisdom_throw">Wisdom</label>
-    <input type="checkbox" id="prof" name="wisdom_proficiency">
-
-    <label for="strength_proficiency" id="charisma_throw">Charisma</label>
-    <input type="checkbox" id="prof" name="charisma_proficiency">
+    <div class="stat-component">
+      <label for="character-background">Character Background</label>
+      <select name="character-background" [(ngModel)]="char_bg">
+        <option value="">Select a Background</option>
+        <option *ngFor="let bg of backgrounds">{{bg.name}}</option>
+      </select>
+    </div>
+    <div class="stat-component">
+      <label for="character-race">Character Race</label>
+      <select name="character-race" [(ngModel)]="char_race">
+        <option value="">Select a Race</option>
+        <option *ngFor="let r of race">{{r.name}}</option>
+      </select>
+    </div>
+    <div class="stat-component">
+      <label for="character-alignment">Character Alignment</label>
+      <select name="character-alignment" [(ngModel)]="char_align">
+        <option value="">Select an Alignment</option>
+        <option *ngFor="let align of alignment">{{align}}</option>
+      </select>
+    </div>
   </div>
-  <!--/#saving-throw-container-->
 
-  <!--The character's stats-->
-  <div id="character-stats-container">
-      <form class="stat_container" id="str">
-        <form class="stat_num" style="text-align: center">STR</form>
-        <form class="stat_mod" style="text-align: center">MOD</form>
-      </form>
-<div id="container">
-  <div id="stat_container">
-    <fieldset>
-      <legend style="text-align: center">Dexterity</legend>
-      <form class="stat_container" id="dex">
-        <form class="stat_num" style="text-align: center">DEX</form>
-        <form class="stat_mod" style="text-align: center">MOD</form>
-      </form>
-    </fieldset>
+
+</div>
+<!--/#character-info-container-->
+
+<!--The character's HP and death saves-->
+<div id="character-battle-container">
+  <label for="character-ac">AC</label>
+  <input name="character-ac" type="text" [(ngModel)]="char_ac">
+  <button type="button" (click)="pc_char.calcAC()">Calculate AC</button>
+
+  <label for="character-initiative">Initiative</label>
+  <input name="character-initiative" type="text" [(ngModel)]="char_init">
+  <button type="button">Roll Initiative</button>
+
+  <label for="character-speed">Speed</label>
+  <input type="number" name="character-speed" [(ngModel)]="char_spd">
+
+
+  <div id="hp_container">
+    <label for="current-hp">HP</label>
+    <input type="number" id="character_hp_current" [(ngModel)]="char_hp"> /
+    <input type="number" id="character_hp_max" [(ngModel)]="char_hp_max">
+    <input type="number" [(ngModel)]="char_hp_temp">
+
+    <div id="character_hit_dice">
+      <div id="total_hit_dice">Hit dice total</div>
+      <div id="remaining_hit_dice">Remaining hit dice</div>
+      <div id="hit_die_type">Hit die: 1d6</div>
+    </div>
+  </div>
+
+  <div id="death_saves">
+    Death Saves
+    <input name="success" type="number" min="0" max="3" [(ngModel)]="death_success">
+    /
+    <input name="failure" type="number" min="0" max="3" [(ngModel)]="death_fail">
   </div>
 </div>
-<div id="container">
-  <div id="stat_container">
-    <fieldset>
-      <legend style="text-align: center">Constitution</legend>
-      <form class="stat_container" id="con">
-        <form class="stat_num" style="text-align: center">CON</form>
-        <form class="stat_mod" style="text-align: center">MOD</form>
-      </form>
-    </fieldset>
-  </div>
-</div>
-<div id="container">
-  <div id="stat_container">
-    <fieldset>
-      <legend style="text-align: center">Intelligence</legend>
-      <form class="stat_container" id="int">
-        <form class="stat_num" style="text-align: center">INT</form>
-        <form class="stat_mod" style="text-align: center">MOD</form>
-      </form>
-    </fieldset>
-  </div>
-</div>
-<div id="container">
-  <div id="stat_container">
-    <fieldset>
-      <legend style="text-align: center">Wisdom</legend>
-      <form class="stat_container" id="wis">
-        <form class="stat_num" style="text-align: center">WIS</form>
-        <form class="stat_mod" style="text-align: center">MOD</form>
-      </form>
-    </fieldset>
-  </div>
-</div>
-<div id="container">
-  <div id="stat_container">
-    <fieldset>
-      <legend style="text-align: center">Charisma</legend>
-      <form class="stat_container" id="cha">
-        <form class="stat_num" style="text-align: center">CHA</form>
-        <form class="stat_mod" style="text-align: center">MOD</form>
-      </form>
-    </fieldset>
-  </div>
-  <!--/#character-stats-container-->
+<!--/#character-battle-container-->
 
-  <div id="character-skill-container">
-    <form id="character_checks" action="">
-      <input type="checkbox" id="prof" name="acrobatics_proficiency">
-      <label for="acrobatics_proficiency" id="acrobatics_check">Acrobatics</label>
-      <input type="checkbox" id="prof" name="animal_proficiency">
-      <label for="animal_proficiency" id="animal_check">Animal</label>
-      <input type="checkbox" id="prof" name="arcana_proficiency">
-      <label for="arcana_proficiency" id="arcana_check">Arcana</label>
+<!--The character's stats-->
+<div id="character-stats-container">
+
+  <div id="str">
+    <div class="stat_container">
+      <label for="character-strength">Strength</label>
+      <input type="number" min="0" max="25" name="character-strength" class="stat_num" [(ngModel)]="char_str">
+      <p class="stat_mod">{{pc_char.char_strmod}}</p>
+    </div>
+
+    <div class="prof-container">
+      <input type="checkbox" id="prof" name="strength_proficiency">
+      <!-- <input type="number" name="strength_modifier" class="stat_num"> -->
+      <label for="strength_proficiency" id="strength_throw">Saving Throw</label>
+      <br>
       <input type="checkbox" id="prof" name="athletics_proficiency">
       <label for="athletics_proficiency" id="athletics_check">Athletics</label>
-      <input type="checkbox" id="prof" name="deception_proficiency">
-      <label for="deception_proficiency" id="deception_check">Deception</label>
-      <input type="checkbox" id="prof" name="history_proficiency">
-      <label for="history_proficiency" id="history_check">History</label>
-      <input type="checkbox" id="prof" name="insight_proficiency">
-      <label for="insight_proficiency" id="insight_check">Insight</label>
-      <input type="checkbox" id="prof" name="intimidation_proficiency">
-      <label for="intimidation_proficiency" id="intimidation_check">Intimidation</label>
-      <input type="checkbox" id="prof" name="investigation_proficiency">
-      <label for="investigation_proficiency" id="investigation_check">Investigation</label>
-      <input type="checkbox" id="prof" name="medicine_proficiency">
-      <label for="medicine_proficiency" id="medicine_check">Medicine</label>
-      <input type="checkbox" id="prof" name="nature_proficiency">
-      <label for="nature_proficiency" id="nature_check">Nature</label>
-      <input type="checkbox" id="prof" name="perception_proficiency">
-      <label for="perception_proficiency" id="perception_check">Perception</label>
-      <input type="checkbox" id="prof" name="performance_proficiency">
-      <label for="performance_proficiency" id="performance_check">Performance</label>
-      <input type="checkbox" id="prof" name="persuasion_proficiency">
-      <label for="persuasion_proficiency" id="persuasion_check">Persuasion</label>
-      <input type="checkbox" id="prof" name="religion_proficiency">
-      <label for="religion_proficiency" id="religion_check">Religion</label>
+    </div>
+  </div>
+
+  <div id="dex">
+    <div class="stat_container">
+      <label for="character-dexterity">Dexterity</label>
+      <input type="number" min="0" max="20" name="character-dexterity" class="stat_num" [(ngModel)]="char_dex">
+      <p class="stat_mod">{{pc_char.char_dexmod}}</p>
+    </div>
+
+    <div class="prof-container">
+      <input type="checkbox" id="prof" name="dexterity_proficiency">
+      <label for="dexterity_proficiency" id="dexterity_throw">Saving Throw</label>
+      <br>
+      <input type="checkbox" id="prof" name="acrobatics_proficiency">
+      <label for="acrobatics_proficiency" id="acrobatics_check">Acrobatics</label>
+      <br>
       <input type="checkbox" id="prof" name="sleight_proficiency">
-      <label for="sleight_proficiency" id="sleight_check">Sleight of hand</label>
+      <label for="sleight_proficiency" id="sleight_check">Sleight of Hand</label>
+      <br>
       <input type="checkbox" id="prof" name="stealth_proficiency">
       <label for="stealth_proficiency" id="stealth_check">Stealth</label>
+    </div>
+  </div>
+
+  <div id="con">
+    <div class="stat_container">
+      <label for="character-constitution">Constitution</label>
+      <input type="number" min="0" max="20" name="character-constitution" class="stat_num" [(ngModel)]="char_con">
+      <p class="stat_mod">{{pc_char.char_conmod}}</p>
+    </div>
+
+    <div class="prof-container">
+      <input type="checkbox" class="prof" name="constitution_proficiency">
+      <label for="constitution_proficiency" id="constitution_throw">Saving Throw</label>
+    </div>
+  </div>
+
+  <div id="int">
+    <div class="stat_container">
+      <label for="character-intelligence">Intelligence</label>
+      <input type="number" min="0" max="20" name="character-intelligence" class="stat_num" [(ngModel)]="char_int">
+      <p class="stat_mod">{{pc_char.char_intmod}}</p>
+    </div>
+
+    <div class="prof-container">
+      <input type="checkbox" id="prof" name="intelligence_proficiency">
+      <label for="intelligence_proficiency" id="intelligence_throw">Saving Throw</label>
+      <br>
+      <input type="checkbox" id="prof" name="arcana_proficiency">
+      <label for="arcana_proficiency" id="arcana_check">Arcana</label>
+      <br>
+      <input type="checkbox" id="prof" name="history_proficiency">
+      <label for="history_proficiency" id="history_check">History</label>
+      <br>
+      <input type="checkbox" id="prof" name="investigation_proficiency">
+      <label for="investigation_proficiency" id="investigation_check">Investigation</label>
+      <br>
+      <input type="checkbox" id="prof" name="nature_proficiency">
+      <label for="nature_proficiency" id="nature_check">Nature</label>
+      <br>
+      <input type="checkbox" id="prof" name="religion_proficiency">
+      <label for="religion_proficiency" id="religion_check">Religion</label>
+    </div>
+  </div>
+
+  <div id="wis">
+    <div class="stat_container">
+      <label for="character-wisdom">Wisdom</label>
+      <input type="number" min="0" max="20" name="character-wisdom" class="stat_num" [(ngModel)]="char_wis">
+      <p class="stat_mod">{{pc_char.char_wismod}}</p>
+    </div>
+    <div class="prof-container">
+      <input type="checkbox" id="prof" name="wisdom_proficiency">
+      <label for="wisdom_proficiency" id="wisdom_throw">Saving Throw</label>
+      <br>
+      <input type="checkbox" id="prof" name="animal_proficiency">
+      <label for="animal_proficiency" id="animal_check">Animal</label>
+      <br>
+      <input type="checkbox" id="prof" name="insight_proficiency">
+      <label for="insight_proficiency" id="insight_check">Insight</label>
+      <br>
+      <input type="checkbox" id="prof" name="medicine_proficiency">
+      <label for="medicine_proficiency" id="medicine_check">Medicine</label>
+      <br>
+      <input type="checkbox" id="prof" name="perception_proficiency">
+      <label for="perception_proficiency" id="perception_check">Perception</label>
+      <br>
       <input type="checkbox" id="prof" name="survival_proficiency">
       <label for="survival_proficiency" id="survival_check"> Survival</label>
-    </form>
-  </div><!--/#character-skill-container-->
-
-
+    </div>
+  </div>
+  <div id="cha">
+    <div class="stat_container">
+      <label for="character-charisma">Charisma</label>
+      <input type="number" min="0" max="20" name="character-charisma" class="stat_num" [(ngModel)]="char_cha">
+      <p class="stat_mod">{{pc_char.char_chamod}}</p>
+    </div>
+    <div class="prof-container">
+      <input type="checkbox" id="prof" name="charisma_proficiency">
+      <label for="strength_proficiency" id="charisma_throw">Saving Throw</label>
+      <br>
+      <input type="checkbox" id="prof" name="deception_proficiency">
+      <label for="deception_proficiency" id="deception_check">Deception</label>
+      <br>
+      <input type="checkbox" id="prof" name="intimidation_proficiency">
+      <label for="intimidation_proficiency" id="intimidation_check">Intimidation</label>
+      <br>
+      <input type="checkbox" id="prof" name="performance_proficiency">
+      <label for="performance_proficiency" id="performance_check">Performance</label>
+      <br>
+      <input type="checkbox" id="prof" name="persuasion_proficiency">
+      <label for="persuasion_proficiency" id="persuasion_check">Persuasion</label>
+    </div>
+  </div>
 </div>
 
+<!--/#character-skill-container-->
+<div id="character-equipment-container">
+  <ul id="character-equipment-list" *ngFor="let e of equipment">
+    <li>{{e.name}}</li>
+  </ul>
+</div>
 
 <!--/#container-->

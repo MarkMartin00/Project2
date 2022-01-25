@@ -1,6 +1,132 @@
+#sheet-container {
+  margin: 0 auto;
+  padding: 10px;
+  width: 95%;
+}
+#character-name-container {
+  display: flex;
+}
+#name-field{
+  font-size: 20pt;
+  width: 18em;
+  border: 2px dotted gray;
+  border-radius: 10px;
+}
+#button-container{
+margin: 0 auto;
+width: fit-content;
+}
+.data-button {
+  position: relative;
+  border: 0;
+  height: 40px;
+  border-radius: 5px;
+  margin: 5px;
+  box-shadow: 0 5px crimson;
+  background-color: rgb(255, 74, 110);
+  color: white;
+  padding: 0 10px;
+}
+.data-button:active{
+  box-shadow: 0 0 0;
+  top: 5px;
+}
+
+/* Character Info Styling */
+
+#character-info-container {
+  margin: 0 auto;
+  display: flex;
+  background-color: rgb(233, 233, 233);
+  height: 100px;
+  border-top: 2px solid crimson;
+  width: fit-content;
+}
+#name-component {
+  margin: 10px 0;
+}
+.stat-component {
+  margin: 1em;
+  background-color: aqua;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Character Stats Styling */
+#character-stats-container {
+  /* background-color: burlywood; */
+  width: 270px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+#str {
+  display: flex;
+  flex-direction: row;
+}
+#dex {
+  display: flex;
+  flex-direction: row;
+}
+#con{
+  display: flex;
+  flex-direction: row;
+}
+#int{
+  display: flex;
+  flex-direction: row;
+}
+#wis{
+  display: flex;
+  flex-direction: row;
+}
+#cha{
+  display: flex;
+  flex-direction: row;
+}
+
 .stat_container {
-  border: 2px solid black;
-  margin: 1em auto;
-  width: 5em;
+  border: 1.5px solid black;
+  border-radius: 10px;
+  margin: 10px;
+  height: 5.7em;
+  width: 5.7em;
   text-align: center;
+}
+.prof-container {
+  border-top: 1.5px solid black;
+  margin: 10px 0 0 10px;
+}
+.stat_num {
+  border: 1px dotted gray;
+  background-color: transparent;
+  border-radius: 10px;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+}
+.stat_mod {
+  margin: 5px auto;
+  border: 1px solid black;
+  border-radius: 100%;
+  text-align: center;
+  width: 35%;
+  height: 35%;
+}
+
+/* Character HP and Death Saves */
+#character-battle-container {
+  margin: 0 auto;
+  background-color: burlywood;
+  width: fit-content;
+}
+
+/* Character Saving Throws */
+#saving-throw-container {
+  margin: 0 auto;
+  background-color: burlywood;
+  width: fit-content;
 }

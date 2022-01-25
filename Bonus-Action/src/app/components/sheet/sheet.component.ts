@@ -9,14 +9,14 @@ import { PlayerCharacter } from 'src/app/models/player-character';
   styleUrls: ['./sheet.component.css'],
 })
 export class SheetComponent implements OnInit {
-  pc_char: PlayerCharacter;
+  pc_char = new PlayerCharacter("","","",0,"","",0,0,0,0,0,0,0,0,0);
   pc_chars: PlayerCharacter[] = [];
   classes: any[] = [];
   spells: any[] = [];
+  equipment: any[] = [];
   features: any[] = [];
   backgrounds: any[] = [];
   race: any[] = [];
-  equipment: any[] = [];
   feats: any[] = [];
   alignment: string[] = [
     'Lawful-Good',
@@ -44,11 +44,25 @@ export class SheetComponent implements OnInit {
   char_int;
   char_wis;
   char_cha;
+  char_strmod = this.pc_char.char_strmod;
+  char_dexmod = this.pc_char.char_dexmod;
+  char_conmod = this.pc_char.char_conmod;
+  char_intmod = this.pc_char.char_intmod;
+  char_wismod = this.pc_char.char_wismod;
+  char_chamod = this.pc_char.char_chamod;
+  char
 
   // Character Battle Stats
+  char_hp;
+  char_hp_max;
+  char_hp_temp;
   char_spd;
   char_ac = 10;
   char_init;
+
+  // Death Saves
+  death_success;
+  death_fail;
 
   // Character Skills
   char_acro;
@@ -70,10 +84,8 @@ export class SheetComponent implements OnInit {
   char_stealth;
   char_surv;
 
-
-
   public registerCharacter() {
-    let tempCharacter = new PlayerCharacter(this.char_name,this.char_class,this.char_level,this.char_bg,this.char_race,this.char_align,this.char_ac,this.char_spd,this.char_init);
+    let tempCharacter = new PlayerCharacter(this.char_name,this.char_race,this.char_class,this.char_level,this.char_bg,this.char_align,this.char_str,this.char_dex,this.char_con,this.char_int,this.char_wis,this.char_cha,this.char_ac,this.char_spd,this.char_init);
     this.pc_char = tempCharacter;
     console.log('Character Created!');
   }
@@ -81,6 +93,11 @@ export class SheetComponent implements OnInit {
   public saveCharacter() {
     this.pc_chars.push(this.pc_char);
     console.log(`${this.pc_char.char_name} saved!`);
+  }
+
+  public loadCharacter(index: number){
+    let temp_char = this.pc_chars[index];
+    this.pc_char = temp_char;
   }
 
   public printCharacter() {
@@ -91,6 +108,45 @@ export class SheetComponent implements OnInit {
     console.log(this.char_name);
   }
 
+  public getStatModifier(stat: number) {
+    switch (stat) {
+      case 0:
+      case 1:
+        return -5;
+      case 2:
+      case 3:
+        return -4;
+      case 4:
+      case 5:
+        return -3;
+      case 6:
+      case 7:
+        return -2;
+      case 8:
+      case 9:
+        return -1;
+      case 10:
+      case 11:
+        return 0;
+      case 12:
+      case 13:
+        return 1;
+      case 14:
+      case 15:
+        return 2;
+      case 16:
+      case 17:
+        return 3;
+      case 18:
+      case 19:
+        return 4;
+      case 20:
+      case 21:
+        return 5;
+      default:
+        return 0;
+    }
+  }
   characterExperience() {}
   onSaveEquipment() {}
 
