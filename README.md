@@ -12,7 +12,9 @@ Create and Manage your D&D characters with a friendly but free interface. Create
            --Create a spell list choosing spells based on class
            --Add or Delete items as used
            --Roll initiative at the start of every turn
-`                                                                                                     `
+           
+ <br/>
+ 
              DM game assistance
              
 Bonus-Action is a friendly interactive web-page assisting DM's in their adventure for new players who aren't sure of the rules and need assistance with dice rolls and character sheet references. Get rid of time explaining numbers and what to add during every event. 
@@ -24,11 +26,14 @@ With our online friendly character sheet we can bring the inconvenience of reloc
              Create your Character – Bring your adventure to life!
 
 Let's start by creating a character:
-1.) Choose a name
-2.) Choose your class. Will you be a tough Barbarian or a magical cleric to assist your group?
-3.) Many Game Master's start at different levels. What level is this character?
-4.) Choose a background.
-5.) Choose your race, many have different abilities and additions to your class.
-6.) What's your moral compass? Choose your alignment.
-7.) Roll ability scores for your adventure and put them into the boxes. Ask your DM for assistance with which numbers should go where.
-8.) Save Changes to save your character  and save the character if everything looks great! Congratulations you can now play.
+
+    1.) Choose a name 
+    2.) Choose your class. Will you be a tough Barbarian or a magical cleric to assist your group?
+    3.) Many Game Master's start at different levels. What level is this character?
+    4.) Choose a background.
+    5.) Choose your race, many have different abilities and additions to your class.
+    6.) What's your moral compass? Choose your alignment.
+    7.) Roll ability scores for your adventure and put them into the boxes. Ask your DM for assistance with 
+            which numbers should go where.
+    8.) Save Changes to save your character  and save the character if everything looks great! Congratulations 
+            you can now play.
