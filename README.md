@@ -1,5 +1,6 @@
                                        Bonus-Action
-`                                                                                                                                                                   `
+                                       
+Mark Martin - Cristopher Aracena - Michael Oliver                                                                                                                                                               
 
              The interactive character sheet for Dungeons and Dragons 5e
 
