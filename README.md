@@ -5,6 +5,7 @@ Mark Martin - Cristopher Aracena - Michael Oliver
              The interactive character sheet for Dungeons and Dragons 5e
 
 Create and Manage your D&D characters with a friendly but free interface. Create characters from the basic 5e standard edition books to start your experience and adventure with your friends. Here you can:
+
            --Character creation
            --Manage and update character such as HP and death saves
            --Roll attacks and hit/miss rolls
