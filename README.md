@@ -1,27 +1,29 @@
-                                                    # Project2
+                                                                 Bonus-Action
 
-1.) Create a file on your desktop for a new workspace called "Project2"
+The interactive character sheet for Dungeons and Dragons 5e
 
-2.) Open gitbash on that file.
+Create and Manage your D&D characters with a friendly but free interface. Create characters from the basic 5e standard edition books to start your experience and adventure with your friends. Here you can:
+Character creation
+Manage and update character such as HP and death saves
+Roll attacks and hit/miss rolls
+Create a spell list choosing spells based on class
+Add or Delete items as used
+Roll initiative at the start of every turn
 
-3.) Use the git command line "
-          git clone https://github.com/MarkMartin00/Project2.git "
-        
-    //now that file has the main git directory for our respository in it. There's a secondary project02 folder inside. Don't be alarmed about this. 
-        
-    git remote add origin https://github.com/MarkMartin00/Project2.git  
-    git branch -M main  
-4.) ls   (command to show files in your computer directory.
+DM game assistance
+Bonus-Action is a friendly interactive web-page assisting DM's in their adventure for new players who aren't sure of the rules and need assistance with dice rolls and character sheet references. Get rid of time explaining numbers and what to add during every event. 
 
-                Use these at the start of every work day. Make sure to commit your work about every hour to avoid pull discrepencies.
+Online friendly environment 
+With our online friendly character sheet we can bring the inconvenience of relocation and packing up hefty game dice, sheets, and writing utensils. Easily log into your created characters from anywhere and use them, update them, and create new ones on the go. Great for traveling or online events as well.
 
-5.) git pull origin main    ( This updates your file in Project2 with any changes your collueges have implemented.)
+Create your Character – Bring your adventure to life!
 
-6.) git status              (Shows any changes you have made to your files that is not the same as the directory.)
-
-7.) git add .               (Adds your changes to a staging area ready for a committment.)
-
-8.) git commit -m "your name - technical message about the commit"        (This commits the work done and ready to be sent)
-
-9.) git push -u origin main            (This pushes all your changes to the local directory in github.)
-# Project2
+Let's start by creating a character:
+Choose a name
+Choose your class. Will you be a tough Barbarian or a magical cleric to assist your group?
+Many Game Master's start at different levels. What level is this character?
+Choose a background.
+Choose your race, many have different abilities and additions to your class.
+What's your moral compass? Choose your alignment.
+Roll ability scores for your adventure and put them into the boxes. Ask your DM for assistance with which numbers should go where.
+Save Changes to save your character  and save the character if everything looks great! Congratulations you can now play.
