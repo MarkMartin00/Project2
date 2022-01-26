@@ -12,7 +12,7 @@ Create and Manage your D&D characters with a friendly but free interface. Create
            --Create a spell list choosing spells based on class
            --Add or Delete items as used
            --Roll initiative at the start of every turn
-_
+`                                                                                                     `
              DM game assistance
              
 Bonus-Action is a friendly interactive web-page assisting DM's in their adventure for new players who aren't sure of the rules and need assistance with dice rolls and character sheet references. Get rid of time explaining numbers and what to add during every event. 
