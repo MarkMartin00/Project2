@@ -1,4 +1,4 @@
-                                                                 Bonus-Action
+                                       Bonus-Action
 
 The interactive character sheet for Dungeons and Dragons 5e
 
