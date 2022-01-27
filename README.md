@@ -1,6 +1,42 @@
                                        Bonus-Action
                                        
-Mark Martin - Cristopher Aracena - Michael Oliver                                                                                                                                                               
+Mark Martin - Cristopher Aracena - Michael Oliver   
+
+Project Description
+Something like: A game design webpage assisting in character sheet creation. 
+
+Technologies Used
+Sonarcloud
+H2 Database
+Postgres SQL
+Micrometer
+Lombok
+SpringBoot
+Bootstrap
+JQuery
+TsLib
+RxJS
+Angular
+Typescript
+
+List of features ready and TODOs for future development <br>
+   --Add automatic roll interative UI on modifiers, accuracy hits, attack rolls. <br>
+   --Add item menus and boxes. <br>
+   --Add equipment add boxes. <br>
+   --Ammo boxes and slots. <br>
+   --Spell lists and checkboxes for selection depending on class. <br>
+<br>
+Mapping of join columns inside of entities.
+Implement of aggregate functions.
+Allow ORM to build table based on Annotations in Entities.
+etc...
+Getting Started
+Currently project must be included as local dependency. to do so:
+
+  git clone https://github.com/MarkMartin00/Project2.git
+  cd *your-repo*_p1
+  mvn install
+  
 
              The interactive character sheet for Dungeons and Dragons 5e
 
